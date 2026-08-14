@@ -283,6 +283,82 @@ const localRecipes = [
             { name: "Dereotu", measure: "Süslemek için" }
         ],
         instructions: "Kararmamaları için limonlu suda beklettiğiniz enginar çanaklarını geniş ve yayvan bir tencereye tek sıra halinde dizin.\nOrta kısımlarına havuç, patates ve bezelyeden oluşan garnitürü tepeleme doldurun.\nAyrı bir kasede zeytinyağı, taze sıkılmış portakal suyu, yarım limonun suyu, tuz ve 1 tatlı kaşığı toz şekeri karıştırarak sosunu hazırlayın.\nHazırladığınız bu özel sosu enginarların üzerine kaşıkla gezdirerek dökün.\nTencerenin tabanında kalan su yeterli gelmezse yarım çay bardağı kadar ılık su ilave edebilirsiniz.\nTencerenin kapağını kapatın ve kaynayana kadar orta ateşte, kaynadıktan sonra kısık ateşte enginarlar çatal batacak kıvama gelene kadar yaklaşık 25-30 dakika pişirin.\nPişen enginarları tenceresinde kapağı kapalı olarak soğumaya bırakın (Zeytinyağlılar kendi tenceresinde soğumalıdır). Servis yaparken üzerine bolca taze dereotu serpiştirin."
+    },
+    {
+        id: "16",
+        title: "Şifalı Tavuk Suyu Çorbası",
+        category: "Çorbalar",
+        image: "https://www.themealdb.com/images/media/meals/ysxwuq1487323065.jpg",
+        time: "45 dk",
+        servings: "6 Kişilik",
+        tags: ["Şifa", "Sıcak", "Geleneksel"],
+        ingredients: [
+            { name: "Tavuk But", measure: "2 adet" },
+            { name: "Tel Şehriye", measure: "1 çay bardağı" },
+            { name: "Su", measure: "6 su bardağı" },
+            { name: "Tereyağı", measure: "1 yemek kaşığı" },
+            { name: "Limon", measure: "Yarım adet" },
+            { name: "Karabiber, Tuz", measure: "Göz kararı" },
+            { name: "Maydanoz", measure: "Süslemek için" }
+        ],
+        instructions: "Tavuk butlarını iyice yıkayıp derin bir tencereye alın. Üzerine 6 su bardağı su ekleyerek etler iyice yumuşayana kadar yaklaşık 30-35 dakika haşlayın.\nHaşlanan tavukları tencereden alın ve soğuduktan sonra ince ince didikleyin. Kalan tavuk suyunu süzerek temiz bir tencereye aktarın.\nSüzülmüş tavuk suyunu ocağa alıp kaynamaya bırakın. Kaynayan suya tel şehriyeleri ilave edin.\nŞehriyeler yumuşamaya başladığında didiklenmiş tavuk etlerini de tencereye ekleyin.\nAyrı bir küçük tavada tereyağını eritip az miktarda pul biber veya nane ile kızdırın ve kaynayan çorbanın üzerine dökün.\nTuz, bol karabiber ve yarım limonun suyunu ekleyerek 5 dakika daha kaynatıp ocaktan alın. Üzerine ince kıyılmış maydanoz serperek sıcak sıcak servis yapın."
+    },
+    {
+        id: "17",
+        title: "Naneli Yayla Çorbası",
+        category: "Çorbalar",
+        image: "https://www.themealdb.com/images/media/meals/rvtvuw1511190488.jpg",
+        time: "30 dk",
+        servings: "6 Kişilik",
+        tags: ["Yoğurtlu", "Hafif", "Geleneksel"],
+        ingredients: [
+            { name: "Pirinç", measure: "Yarım çay bardağı" },
+            { name: "Yoğurt", measure: "1.5 su bardağı" },
+            { name: "Yumurta Sarısı", measure: "1 adet" },
+            { name: "Un", measure: "1 yemek kaşığı (Tepeleme)" },
+            { name: "Su", measure: "6 su bardağı" },
+            { name: "Tereyağı", measure: "2 yemek kaşığı" },
+            { name: "Kuru Nane", measure: "1.5 yemek kaşığı" }
+        ],
+        instructions: "Pirinci yıkayıp süzün. Tencereye alın, üzerine suyu ilave edin ve pirinçler iyice yumuşayana kadar haşlayın.\nTerbiyesi için derin bir kasede yoğurt, un ve yumurta sarısını tel çırpıcıyla pürüzsüz olana kadar iyice çırpın.\nÇorbanın kesilmemesi için, kaynayan pirincin suyundan 1-2 kepçe alarak yoğurtlu terbiyeye yavaş yavaş ekleyin ve çırpmaya devam edin (Bu işleme ılıştırma denir).\nIlımış olan terbiyeyi tencereye azar azar ve sürekli karıştırarak dökün.\nÇorba kaynayana kadar karıştırmayı hiç bırakmayın. Kaynadıktan sonra altını kısıp 10 dakika daha pişirin. (Tuzu en son, çorbayı ocaktan alırken ekleyin ki yoğurt kesilmesin).\nKüçük bir sos tavasında tereyağını eritip kuru naneyi yakmadan kavurun. Naneli sosu çorbanın üzerine gezdirerek servis yapın."
+    },
+    {
+        id: "18",
+        title: "Köy Tarhanası Çorbası",
+        category: "Çorbalar",
+        image: "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+        time: "20 dk",
+        servings: "4 Kişilik",
+        tags: ["Şifa", "Yöresel", "Sıcak"],
+        ingredients: [
+            { name: "Toz Tarhana", measure: "4 yemek kaşığı" },
+            { name: "Su", measure: "5 su bardağı (Soğuk)" },
+            { name: "Tereyağı", measure: "1 yemek kaşığı" },
+            { name: "Sıvı Yağ", measure: "1 yemek kaşığı" },
+            { name: "Domates Salçası", measure: "1 tatlı kaşığı" },
+            { name: "Sarımsak", measure: "2 diş (Ezilmiş)" },
+            { name: "Kuru Nane, Tuz", measure: "1'er çay kaşığı" }
+        ],
+        instructions: "Tarhananın topaklanmaması için, pişirmeye başlamadan önce toz tarhanayı bir kasede 1 su bardağı soğuk su ile karıştırıp 15 dakika yumuşaması için bekletin.\nTencereye sıvı yağ ve tereyağını alın. Tereyağı eriyince ezilmiş sarımsakları ve salçayı ekleyip kokusu çıkana kadar kavurun.\nÜzerine kuru naneyi ekleyip çok az çevirin.\nIslattığınız tarhanayı suyuyla beraber tencereye ilave edin. Üzerine kalan 4 bardak suyu (mutlaka soğuk veya oda sıcaklığında olmalı) ekleyin.\nÇorba kaynayana kadar çırpma teli veya tahta kaşıkla sürekli ve hızlıca karıştırın. Aksi halde tarhana dibine tutar ve topaklanır.\nKaynadıktan sonra tuzunu ekleyin ve ocağın altını kısıp 5 dakika daha kıvam alması için pişirin. Şifa niyetine sıcak servis yapın."
+    },
+    {
+        id: "19",
+        title: "Kremalı Domates Çorbası",
+        category: "Çorbalar",
+        image: "https://www.themealdb.com/images/media/meals/tsuyrq1511552690.jpg",
+        time: "25 dk",
+        servings: "4 Kişilik",
+        tags: ["Klasik", "Pratik", "Hafif"],
+        ingredients: [
+            { name: "Domates", measure: "4 adet (Büyük, olgun)" },
+            { name: "Tereyağı", measure: "2 yemek kaşığı" },
+            { name: "Un", measure: "2 yemek kaşığı" },
+            { name: "Domates Salçası", measure: "1 yemek kaşığı" },
+            { name: "Süt", measure: "1 su bardağı" },
+            { name: "Sıcak Su veya Et Suyu", measure: "4 su bardağı" },
+            { name: "Kaşar Peyniri", measure: "Üzeri için rendelenmiş" }
+        ],
+        instructions: "Domateslerin kabuklarını soyun ve mutfak robotundan geçirerek pürüzsüz bir püre haline getirin (veya rendenin ince tarafıyla rendeleyin).\nTencereye tereyağını alın ve eritin. Unu ilave ederek unun kokusu çıkana kadar (yaklaşık 2-3 dakika) kısık ateşte kavurun.\nKavrulmuş unun üzerine salçayı ekleyin ve 1 dakika daha kavurun.\nHazırladığınız domates püresini tencereye ilave edin ve malzemelerle iyice bütünleşene kadar karıştırın.\nÜzerine sıcak suyu (et veya tavuk suyu çok daha lezzetli yapar) yavaş yavaş ve sürekli karıştırarak ekleyin.\nÇorba kaynamaya başladığında ocağın altını kısın ve 15 dakika kadar pişirin.\nOcaktan almaya yakın, 1 su bardağı soğuk sütü yavaşça ilave edin (sütü koymadan önce çorbanın suyundan 1-2 kaşık süte ekleyip ılıştırabilirsiniz) ve hızlıca karıştırın.\nTuzunu ekleyip 2 dakika daha kaynattıktan sonra ocaktan alın. Servis kaselerine paylaştırdıktan sonra üzerine bol kaşar rendesi dökerek servis yapın."
     }
 ];
 
