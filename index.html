@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GastroKeşif - Dünya Mutfakları</title>
+    <title>Türk Mutfağı Rehberi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,27 +15,13 @@
 
     <main class="container">
         <header>
-            <h1>GastroKeşif</h1>
-            <p>Dünya mutfaklarının en lezzetli tariflerini keşfedin.</p>
+            <h1>Türk Mutfağı Rehberi</h1>
+            <p>Yüzlerce yıllık lezzet mirasımız, en özel ve ölçülü tariflerle burada.</p>
         </header>
-
-        <!-- Filtreler -->
-        <div class="filters-container">
-            <div class="filter-group">
-                <label for="areaSelect"><i class="fa-solid fa-earth-americas"></i> Yöre Seçin:</label>
-                <select id="areaSelect" class="soft-select">
-                    <option value="All">Tüm Yöreler</option>
-                    <!-- JavaScript ile doldurulacak -->
-                </select>
-            </div>
-        </div>
 
         <!-- Kategoriler -->
         <section class="categories-section" id="categoriesSection">
             <h2 class="section-title">Kategoriler</h2>
-            <div id="categoriesLoading" class="spinner-container hidden">
-                <div class="spinner"></div>
-            </div>
             <div class="categories-container" id="categoriesContainer">
                 <!-- Kategori kartları buraya gelecek -->
             </div>
@@ -45,10 +31,6 @@
         <section class="meals-section">
             <div class="section-header">
                 <h2 class="section-title" id="mealsTitle">Popüler Yemekler</h2>
-            </div>
-            
-            <div id="mealsLoading" class="spinner-container hidden">
-                <div class="spinner"></div>
             </div>
             
             <div class="recipes-grid" id="recipesGrid">
@@ -67,6 +49,8 @@
         </div>
     </div>
 
+    <!-- Scriptler -->
+    <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,78 +1,17 @@
-// TheMealDB API Endpoints
-const API_CATEGORIES = 'https://www.themealdb.com/api/json/v1/1/categories.php';
-const API_FILTER_BY_CATEGORY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
-const API_AREAS = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
-const API_FILTER_BY_AREA = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
-const API_RECIPE_DETAILS = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
-
-// Dictionaries for Translation
-const categoryTranslations = {
-    "Beef": "Et Yemekleri",
-    "Chicken": "Tavuk",
-    "Dessert": "Tatlılar",
-    "Lamb": "Kuzu Eti",
-    "Miscellaneous": "Karışık",
-    "Pasta": "Makarna",
-    "Pork": "Domuz Eti",
-    "Seafood": "Deniz Ürünleri",
-    "Side": "Garnitür",
-    "Starter": "Başlangıçlar",
-    "Vegan": "Vegan",
-    "Vegetarian": "Vejetaryen",
-    "Breakfast": "Kahvaltı",
-    "Goat": "Keçi Eti"
-};
-
-const areaTranslations = {
-    "American": "Amerikan",
-    "British": "İngiliz",
-    "Canadian": "Kanada",
-    "Chinese": "Çin",
-    "Croatian": "Hırvat",
-    "Dutch": "Hollanda",
-    "Egyptian": "Mısır",
-    "Filipino": "Filipin",
-    "French": "Fransız",
-    "Greek": "Yunan",
-    "Indian": "Hint",
-    "Irish": "İrlanda",
-    "Italian": "İtalyan",
-    "Jamaican": "Jamaika",
-    "Japanese": "Japon",
-    "Kenyan": "Kenya",
-    "Malaysian": "Malezya",
-    "Mexican": "Meksika",
-    "Moroccan": "Fas",
-    "Polish": "Polonya",
-    "Portuguese": "Portekiz",
-    "Russian": "Rus",
-    "Spanish": "İspanyol",
-    "Thai": "Tayland",
-    "Tunisian": "Tunus",
-    "Turkish": "Türk",
-    "Unknown": "Bilinmeyen",
-    "Vietnamese": "Vietnam"
-};
-
 // DOM Elements
 const categoriesContainer = document.getElementById('categoriesContainer');
 const recipesGrid = document.getElementById('recipesGrid');
 const mealsTitle = document.getElementById('mealsTitle');
-const categoriesLoading = document.getElementById('categoriesLoading');
-const mealsLoading = document.getElementById('mealsLoading');
 const recipeModal = document.getElementById('recipeModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modalBody = document.getElementById('modalBody');
-const areaSelect = document.getElementById('areaSelect');
-const categoriesSection = document.getElementById('categoriesSection');
 
 // State
-let currentCategory = 'Beef'; 
+let currentCategory = 'Ana Yemekler'; 
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    fetchAreas();
-    fetchCategories();
+    renderCategories();
     fetchMealsByCategory(currentCategory);
 });
 
@@ -89,148 +28,57 @@ recipeModal.addEventListener('click', (e) => {
     }
 });
 
-areaSelect.addEventListener('change', (e) => {
-    const selectedArea = e.target.value;
-    if (selectedArea === 'All') {
-        // Geri kategori moduna dön
-        categoriesSection.style.display = 'block';
-        
-        // Remove active class from all cards except the saved currentCategory
-        document.querySelectorAll('.category-card').forEach(c => {
-            if(c.dataset.category === currentCategory) {
-                c.classList.add('active');
-            } else {
-                c.classList.remove('active');
-            }
-        });
-        
-        const trName = categoryTranslations[currentCategory] || currentCategory;
-        mealsTitle.innerHTML = `${trName} Tarifleri`;
-        fetchMealsByCategory(currentCategory);
-    } else {
-        // Yöre moduna geç, kategorileri gizle
-        categoriesSection.style.display = 'none';
-        const trArea = areaTranslations[selectedArea] || selectedArea;
-        mealsTitle.innerHTML = `${trArea} Mutfağı Tarifleri`;
-        fetchMealsByArea(selectedArea);
-    }
-});
-
-// Fetch Areas for Dropdown
-async function fetchAreas() {
-    try {
-        const response = await fetch(API_AREAS);
-        const data = await response.json();
-        
-        // Populate select
-        data.meals.forEach(areaObj => {
-            const area = areaObj.strArea;
-            const option = document.createElement('option');
-            option.value = area;
-            option.textContent = areaTranslations[area] || area;
-            areaSelect.appendChild(option);
-        });
-        
-        // Sort options alphabetically by text (except "Tüm Yöreler")
-        const options = Array.from(areaSelect.options).slice(1);
-        options.sort((a, b) => a.textContent.localeCompare(b.textContent, 'tr'));
-        options.forEach(opt => areaSelect.appendChild(opt));
-
-    } catch (error) {
-        console.error("Yöreler yüklenemedi:", error);
-    }
-}
-
-// Fetch Categories
-async function fetchCategories() {
-    categoriesLoading.classList.remove('hidden');
-    try {
-        const response = await fetch(API_CATEGORIES);
-        const data = await response.json();
-        renderCategories(data.categories);
-    } catch (error) {
-        categoriesContainer.innerHTML = '<p>Kategoriler yüklenemedi.</p>';
-    } finally {
-        categoriesLoading.classList.add('hidden');
-    }
-}
-
-function renderCategories(categories) {
+// Render Categories
+function renderCategories() {
     categoriesContainer.innerHTML = '';
     
-    categories.forEach(category => {
-        const trName = categoryTranslations[category.strCategory] || category.strCategory;
-        
+    appCategories.forEach(category => {
         const card = document.createElement('div');
-        card.className = `category-card ${category.strCategory === currentCategory ? 'active' : ''}`;
-        card.dataset.category = category.strCategory;
+        card.className = `category-card ${category.name === currentCategory ? 'active' : ''}`;
         
         card.innerHTML = `
-            <img src="${category.strCategoryThumb}" alt="${trName}" loading="lazy">
-            <h3>${trName}</h3>
+            <img src="${category.image}" alt="${category.name}" loading="lazy">
+            <h3>${category.name}</h3>
         `;
         
         card.addEventListener('click', () => {
             document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
             card.classList.add('active');
             
-            currentCategory = category.strCategory;
-            mealsTitle.innerHTML = `${trName} Tarifleri`;
+            currentCategory = category.name;
+            mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
             fetchMealsByCategory(currentCategory);
         });
         
         categoriesContainer.appendChild(card);
     });
     
-    // Set initial title
-    const trName = categoryTranslations[currentCategory] || currentCategory;
-    mealsTitle.innerHTML = `${trName} Tarifleri`;
+    mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
 }
 
-// Fetch Meals
-async function fetchMealsByCategory(category) {
+// Fetch Meals (Local DB)
+function fetchMealsByCategory(category) {
     recipesGrid.innerHTML = '';
-    mealsLoading.classList.remove('hidden');
-    try {
-        const response = await fetch(API_FILTER_BY_CATEGORY + category);
-        const data = await response.json();
-        renderMeals(data.meals);
-    } catch (error) {
-        recipesGrid.innerHTML = '<p>Yemekler yüklenemedi.</p>';
-    } finally {
-        mealsLoading.classList.add('hidden');
-    }
-}
-
-async function fetchMealsByArea(area) {
-    recipesGrid.innerHTML = '';
-    mealsLoading.classList.remove('hidden');
-    try {
-        const response = await fetch(API_FILTER_BY_AREA + area);
-        const data = await response.json();
-        renderMeals(data.meals);
-    } catch (error) {
-        recipesGrid.innerHTML = '<p>Yemekler yüklenemedi.</p>';
-    } finally {
-        mealsLoading.classList.add('hidden');
-    }
+    
+    const filteredMeals = localRecipes.filter(meal => meal.category === category);
+    renderMeals(filteredMeals);
 }
 
 function renderMeals(meals) {
-    if (!meals) {
-        recipesGrid.innerHTML = '<p style="color:var(--text-secondary);">Bu kriterlere uygun yemek bulunamadı.</p>';
+    if (!meals || meals.length === 0) {
+        recipesGrid.innerHTML = '<p style="color:var(--text-secondary);">Bu kategoriye ait henüz tarif eklenmedi.</p>';
         return;
     }
     
     meals.forEach(meal => {
         const card = document.createElement('div');
         card.className = 'recipe-card';
-        card.onclick = () => fetchMealDetails(meal.idMeal);
+        card.onclick = () => fetchMealDetails(meal.id);
         
         card.innerHTML = `
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" loading="lazy">
+            <img src="${meal.image}" alt="${meal.title}" loading="lazy">
             <div class="recipe-info">
-                <h3>${meal.strMeal}</h3>
+                <h3>${meal.title}</h3>
             </div>
         `;
         
@@ -238,66 +86,38 @@ function renderMeals(meals) {
     });
 }
 
-// Fetch Meal Details
-async function fetchMealDetails(id) {
+// Fetch Meal Details (Local DB)
+function fetchMealDetails(id) {
+    const meal = localRecipes.find(m => m.id === id);
+    if (!meal) return;
+    
     recipeModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; 
-    
-    modalBody.innerHTML = `
-        <div class="spinner-container" style="height: 400px; align-items: center;">
-            <div class="spinner"></div>
-        </div>
-    `;
-
-    try {
-        const response = await fetch(API_RECIPE_DETAILS + id);
-        const data = await response.json();
-        if (data.meals && data.meals.length > 0) {
-            renderMealDetails(data.meals[0]);
-        }
-    } catch (error) {
-        modalBody.innerHTML = `<p style="padding: 2rem; text-align: center; color: #ef4444;">Detaylar yüklenemedi.</p>`;
-    }
+    renderMealDetails(meal);
 }
 
 function renderMealDetails(meal) {
     let ingredientsList = '';
-    for (let i = 1; i <= 20; i++) {
-        const ingredient = meal[`strIngredient${i}`];
-        const measure = meal[`strMeasure${i}`];
-        
-        if (ingredient && ingredient.trim() !== '') {
-            ingredientsList += `
-                <li>
-                    <span>${ingredient}</span>
-                    <span class="ingredient-measure">${measure}</span>
-                </li>
-            `;
-        }
-    }
+    meal.ingredients.forEach(item => {
+        ingredientsList += `
+            <li>
+                <span>${item.name}</span>
+                <span class="ingredient-measure">${item.measure}</span>
+            </li>
+        `;
+    });
 
-    const ytButton = meal.strYoutube ? 
-        `<a href="${meal.strYoutube}" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> İzle</a>` 
-        : '';
-
-    const translateBtn = `<a href="https://translate.google.com/?sl=en&tl=tr&text=${encodeURIComponent(meal.strInstructions)}" target="_blank" class="translate-btn" style="background:#4285F4; color:white; padding:0.8rem 1.5rem; border-radius:50px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem; transition:transform 0.3s; box-shadow:0 4px 10px rgba(66, 133, 244, 0.2);"><i class="fa-solid fa-language"></i> Çevir</a>`;
-
-    const areaStr = (meal.strArea && meal.strArea !== 'null') ? meal.strArea : 'Unknown';
-    const trArea = areaTranslations[areaStr] || areaStr;
-    const catStr = meal.strCategory || '';
-    const trCat = categoryTranslations[catStr] || catStr;
-
-    const tags = meal.strTags ? meal.strTags.split(',').map(tag => `<span style="background:white; color:var(--text-primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
+    const tagsHTML = meal.tags ? meal.tags.map(tag => `<span style="background:white; color:var(--text-primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
 
     modalBody.innerHTML = `
         <div class="modal-hero">
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+            <img src="${meal.image}" alt="${meal.title}">
             <div class="modal-hero-overlay">
-                <h2>${meal.strMeal}</h2>
-                <div style="margin-bottom: 1rem;">${tags}</div>
+                <h2>${meal.title}</h2>
+                <div style="margin-bottom: 1rem;">${tagsHTML}</div>
                 <div style="display: flex; gap: 1.5rem; color: rgba(255,255,255,0.9); font-size: 1rem;">
-                    <span><i class="fa-solid fa-earth-americas"></i> ${trArea} Mutfağı</span>
-                    <span><i class="fa-solid fa-list"></i> ${trCat}</span>
+                    <span><i class="fa-solid fa-clock"></i> ${meal.time}</span>
+                    <span><i class="fa-solid fa-user-group"></i> ${meal.servings}</span>
                 </div>
             </div>
         </div>
@@ -312,12 +132,8 @@ function renderMealDetails(meal) {
             <div class="instructions-list">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h3 style="margin: 0;"><i class="fa-solid fa-fire-burner"></i> Yapılışı</h3>
-                    <div style="display:flex; gap:0.5rem;">
-                        ${translateBtn}
-                        ${ytButton}
-                    </div>
                 </div>
-                <p>${meal.strInstructions}</p>
+                <p style="white-space: pre-line; line-height: 1.9; color: var(--text-secondary);">${meal.instructions}</p>
             </div>
         </div>
     `;
