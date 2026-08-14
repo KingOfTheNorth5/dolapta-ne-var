@@ -1,7 +1,58 @@
 // TheMealDB API Endpoints
 const API_CATEGORIES = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 const API_FILTER_BY_CATEGORY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
+const API_AREAS = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
+const API_FILTER_BY_AREA = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
 const API_RECIPE_DETAILS = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
+
+// Dictionaries for Translation
+const categoryTranslations = {
+    "Beef": "Et Yemekleri",
+    "Chicken": "Tavuk",
+    "Dessert": "Tatlılar",
+    "Lamb": "Kuzu Eti",
+    "Miscellaneous": "Karışık",
+    "Pasta": "Makarna",
+    "Pork": "Domuz Eti",
+    "Seafood": "Deniz Ürünleri",
+    "Side": "Garnitür",
+    "Starter": "Başlangıçlar",
+    "Vegan": "Vegan",
+    "Vegetarian": "Vejetaryen",
+    "Breakfast": "Kahvaltı",
+    "Goat": "Keçi Eti"
+};
+
+const areaTranslations = {
+    "American": "Amerikan",
+    "British": "İngiliz",
+    "Canadian": "Kanada",
+    "Chinese": "Çin",
+    "Croatian": "Hırvat",
+    "Dutch": "Hollanda",
+    "Egyptian": "Mısır",
+    "Filipino": "Filipin",
+    "French": "Fransız",
+    "Greek": "Yunan",
+    "Indian": "Hint",
+    "Irish": "İrlanda",
+    "Italian": "İtalyan",
+    "Jamaican": "Jamaika",
+    "Japanese": "Japon",
+    "Kenyan": "Kenya",
+    "Malaysian": "Malezya",
+    "Mexican": "Meksika",
+    "Moroccan": "Fas",
+    "Polish": "Polonya",
+    "Portuguese": "Portekiz",
+    "Russian": "Rus",
+    "Spanish": "İspanyol",
+    "Thai": "Tayland",
+    "Tunisian": "Tunus",
+    "Turkish": "Türk",
+    "Unknown": "Bilinmeyen",
+    "Vietnamese": "Vietnam"
+};
 
 // DOM Elements
 const categoriesContainer = document.getElementById('categoriesContainer');
@@ -12,12 +63,15 @@ const mealsLoading = document.getElementById('mealsLoading');
 const recipeModal = document.getElementById('recipeModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modalBody = document.getElementById('modalBody');
+const areaSelect = document.getElementById('areaSelect');
+const categoriesSection = document.getElementById('categoriesSection');
 
 // State
-let currentCategory = 'Beef'; // Default category
+let currentCategory = 'Beef'; 
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    fetchAreas();
     fetchCategories();
     fetchMealsByCategory(currentCategory);
 });
@@ -25,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Event Listeners
 closeModalBtn.addEventListener('click', () => {
     recipeModal.classList.add('hidden');
-    document.body.style.overflow = 'auto'; // restore background scrolling
+    document.body.style.overflow = 'auto'; 
 });
 
 recipeModal.addEventListener('click', (e) => {
@@ -35,6 +89,58 @@ recipeModal.addEventListener('click', (e) => {
     }
 });
 
+areaSelect.addEventListener('change', (e) => {
+    const selectedArea = e.target.value;
+    if (selectedArea === 'All') {
+        // Geri kategori moduna dön
+        categoriesSection.style.display = 'block';
+        
+        // Remove active class from all cards except the saved currentCategory
+        document.querySelectorAll('.category-card').forEach(c => {
+            if(c.dataset.category === currentCategory) {
+                c.classList.add('active');
+            } else {
+                c.classList.remove('active');
+            }
+        });
+        
+        const trName = categoryTranslations[currentCategory] || currentCategory;
+        mealsTitle.innerHTML = `${trName} Tarifleri`;
+        fetchMealsByCategory(currentCategory);
+    } else {
+        // Yöre moduna geç, kategorileri gizle
+        categoriesSection.style.display = 'none';
+        const trArea = areaTranslations[selectedArea] || selectedArea;
+        mealsTitle.innerHTML = `${trArea} Mutfağı Tarifleri`;
+        fetchMealsByArea(selectedArea);
+    }
+});
+
+// Fetch Areas for Dropdown
+async function fetchAreas() {
+    try {
+        const response = await fetch(API_AREAS);
+        const data = await response.json();
+        
+        // Populate select
+        data.meals.forEach(areaObj => {
+            const area = areaObj.strArea;
+            const option = document.createElement('option');
+            option.value = area;
+            option.textContent = areaTranslations[area] || area;
+            areaSelect.appendChild(option);
+        });
+        
+        // Sort options alphabetically by text (except "Tüm Yöreler")
+        const options = Array.from(areaSelect.options).slice(1);
+        options.sort((a, b) => a.textContent.localeCompare(b.textContent, 'tr'));
+        options.forEach(opt => areaSelect.appendChild(opt));
+
+    } catch (error) {
+        console.error("Yöreler yüklenemedi:", error);
+    }
+}
+
 // Fetch Categories
 async function fetchCategories() {
     categoriesLoading.classList.remove('hidden');
@@ -43,64 +149,76 @@ async function fetchCategories() {
         const data = await response.json();
         renderCategories(data.categories);
     } catch (error) {
-        console.error("Kategoriler yüklenirken hata oluştu:", error);
         categoriesContainer.innerHTML = '<p>Kategoriler yüklenemedi.</p>';
     } finally {
         categoriesLoading.classList.add('hidden');
     }
 }
 
-// Render Categories
 function renderCategories(categories) {
     categoriesContainer.innerHTML = '';
     
-    // Some basic categories to prioritize or filter if needed, but we'll show all
     categories.forEach(category => {
+        const trName = categoryTranslations[category.strCategory] || category.strCategory;
+        
         const card = document.createElement('div');
         card.className = `category-card ${category.strCategory === currentCategory ? 'active' : ''}`;
         card.dataset.category = category.strCategory;
         
         card.innerHTML = `
-            <img src="${category.strCategoryThumb}" alt="${category.strCategory}" loading="lazy">
-            <h3>${category.strCategory}</h3>
+            <img src="${category.strCategoryThumb}" alt="${trName}" loading="lazy">
+            <h3>${trName}</h3>
         `;
         
         card.addEventListener('click', () => {
-            // Update active state
             document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
             card.classList.add('active');
             
-            // Fetch new meals
             currentCategory = category.strCategory;
-            mealsTitle.innerHTML = `${currentCategory} Yemekleri`;
+            mealsTitle.innerHTML = `${trName} Tarifleri`;
             fetchMealsByCategory(currentCategory);
         });
         
         categoriesContainer.appendChild(card);
     });
+    
+    // Set initial title
+    const trName = categoryTranslations[currentCategory] || currentCategory;
+    mealsTitle.innerHTML = `${trName} Tarifleri`;
 }
 
 // Fetch Meals
 async function fetchMealsByCategory(category) {
     recipesGrid.innerHTML = '';
     mealsLoading.classList.remove('hidden');
-    
     try {
         const response = await fetch(API_FILTER_BY_CATEGORY + category);
         const data = await response.json();
         renderMeals(data.meals);
     } catch (error) {
-        console.error("Yemekler yüklenirken hata:", error);
         recipesGrid.innerHTML = '<p>Yemekler yüklenemedi.</p>';
     } finally {
         mealsLoading.classList.add('hidden');
     }
 }
 
-// Render Meals
+async function fetchMealsByArea(area) {
+    recipesGrid.innerHTML = '';
+    mealsLoading.classList.remove('hidden');
+    try {
+        const response = await fetch(API_FILTER_BY_AREA + area);
+        const data = await response.json();
+        renderMeals(data.meals);
+    } catch (error) {
+        recipesGrid.innerHTML = '<p>Yemekler yüklenemedi.</p>';
+    } finally {
+        mealsLoading.classList.add('hidden');
+    }
+}
+
 function renderMeals(meals) {
     if (!meals) {
-        recipesGrid.innerHTML = '<p>Bu kategoride yemek bulunamadı.</p>';
+        recipesGrid.innerHTML = '<p style="color:var(--text-secondary);">Bu kriterlere uygun yemek bulunamadı.</p>';
         return;
     }
     
@@ -123,7 +241,7 @@ function renderMeals(meals) {
 // Fetch Meal Details
 async function fetchMealDetails(id) {
     recipeModal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // prevent background scrolling
+    document.body.style.overflow = 'hidden'; 
     
     modalBody.innerHTML = `
         <div class="spinner-container" style="height: 400px; align-items: center;">
@@ -138,14 +256,11 @@ async function fetchMealDetails(id) {
             renderMealDetails(data.meals[0]);
         }
     } catch (error) {
-        console.error("Detaylar yüklenirken hata:", error);
         modalBody.innerHTML = `<p style="padding: 2rem; text-align: center; color: #ef4444;">Detaylar yüklenemedi.</p>`;
     }
 }
 
-// Render Meal Details
 function renderMealDetails(meal) {
-    // Parse ingredients and measures (TheMealDB returns them as strIngredient1 to 20)
     let ingredientsList = '';
     for (let i = 1; i <= 20; i++) {
         const ingredient = meal[`strIngredient${i}`];
@@ -165,7 +280,10 @@ function renderMealDetails(meal) {
         `<a href="${meal.strYoutube}" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Tarifi İzle</a>` 
         : '';
 
-    const tags = meal.strTags ? meal.strTags.split(',').map(tag => `<span style="background:var(--accent-1); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; margin-right: 0.5rem;">${tag}</span>`).join('') : '';
+    const trArea = areaTranslations[meal.strArea] || meal.strArea;
+    const trCat = categoryTranslations[meal.strCategory] || meal.strCategory;
+
+    const tags = meal.strTags ? meal.strTags.split(',').map(tag => `<span style="background:white; color:var(--text-primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
 
     modalBody.innerHTML = `
         <div class="modal-hero">
@@ -173,9 +291,9 @@ function renderMealDetails(meal) {
             <div class="modal-hero-overlay">
                 <h2>${meal.strMeal}</h2>
                 <div style="margin-bottom: 1rem;">${tags}</div>
-                <div style="display: flex; gap: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
-                    <span><i class="fa-solid fa-earth-americas"></i> ${meal.strArea} Mutfağı</span>
-                    <span><i class="fa-solid fa-list"></i> ${meal.strCategory}</span>
+                <div style="display: flex; gap: 1.5rem; color: rgba(255,255,255,0.9); font-size: 1rem;">
+                    <span><i class="fa-solid fa-earth-americas"></i> ${trArea} Mutfağı</span>
+                    <span><i class="fa-solid fa-list"></i> ${trCat}</span>
                 </div>
             </div>
         </div>

@@ -6,24 +6,32 @@
     <title>GastroKeşif - Dünya Mutfakları</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
+    <div class="background-texture"></div>
 
     <main class="container">
         <header>
-            <h1><i class="fa-solid fa-utensils"></i> GastroKeşif</h1>
-            <p>Dünya mutfaklarından en lezzetli kategorileri seçin ve keşfetmeye başlayın.</p>
+            <h1>GastroKeşif</h1>
+            <p>Dünya mutfaklarının en lezzetli tariflerini keşfedin.</p>
         </header>
 
+        <!-- Filtreler -->
+        <div class="filters-container">
+            <div class="filter-group">
+                <label for="areaSelect"><i class="fa-solid fa-earth-americas"></i> Yöre Seçin:</label>
+                <select id="areaSelect" class="soft-select">
+                    <option value="All">Tüm Yöreler</option>
+                    <!-- JavaScript ile doldurulacak -->
+                </select>
+            </div>
+        </div>
+
         <!-- Kategoriler -->
-        <section class="categories-section">
+        <section class="categories-section" id="categoriesSection">
             <h2 class="section-title">Kategoriler</h2>
             <div id="categoriesLoading" class="spinner-container hidden">
                 <div class="spinner"></div>
@@ -51,7 +59,7 @@
 
     <!-- Tarif Detay Modalı -->
     <div id="recipeModal" class="modal-overlay hidden">
-        <div class="modal-content glass-panel">
+        <div class="modal-content">
             <button id="closeModalBtn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
             <div id="modalBody">
                 <!-- Modal içeriği JavaScript ile doldurulacak -->
