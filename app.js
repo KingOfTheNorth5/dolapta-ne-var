@@ -1,176 +1,198 @@
-// Spoonacular API Key (User Needs to Provide This)
-const API_KEY = '4f10fe03be7846cf9c0614019e523eba'; // e.g. "1234567890abcdef"
+// TheMealDB API Endpoints
+const API_CATEGORIES = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+const API_FILTER_BY_CATEGORY = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
+const API_RECIPE_DETAILS = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
 // DOM Elements
-const ingredientInput = document.getElementById('ingredientInput');
-const addBtn = document.getElementById('addBtn');
-const ingredientsList = document.getElementById('ingredientsList');
-const searchRecipesBtn = document.getElementById('searchRecipesBtn');
+const categoriesContainer = document.getElementById('categoriesContainer');
 const recipesGrid = document.getElementById('recipesGrid');
-const loadingIndicator = document.getElementById('loadingIndicator');
+const mealsTitle = document.getElementById('mealsTitle');
+const categoriesLoading = document.getElementById('categoriesLoading');
+const mealsLoading = document.getElementById('mealsLoading');
 const recipeModal = document.getElementById('recipeModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modalBody = document.getElementById('modalBody');
 
 // State
-let ingredients = [];
+let currentCategory = 'Beef'; // Default category
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    fetchCategories();
+    fetchMealsByCategory(currentCategory);
+});
 
 // Event Listeners
-addBtn.addEventListener('click', addIngredient);
-ingredientInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') addIngredient();
-});
-searchRecipesBtn.addEventListener('click', searchRecipes);
 closeModalBtn.addEventListener('click', () => {
     recipeModal.classList.add('hidden');
+    document.body.style.overflow = 'auto'; // restore background scrolling
 });
+
 recipeModal.addEventListener('click', (e) => {
     if (e.target === recipeModal) {
         recipeModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
     }
 });
 
-// Functions
-function addIngredient() {
-    const value = ingredientInput.value.trim().toLowerCase();
-    if (value && !ingredients.includes(value)) {
-        ingredients.push(value);
-        renderIngredients();
-        ingredientInput.value = '';
+// Fetch Categories
+async function fetchCategories() {
+    categoriesLoading.classList.remove('hidden');
+    try {
+        const response = await fetch(API_CATEGORIES);
+        const data = await response.json();
+        renderCategories(data.categories);
+    } catch (error) {
+        console.error("Kategoriler yüklenirken hata oluştu:", error);
+        categoriesContainer.innerHTML = '<p>Kategoriler yüklenemedi.</p>';
+    } finally {
+        categoriesLoading.classList.add('hidden');
     }
-    updateSearchButton();
 }
 
-function removeIngredient(ingredient) {
-    ingredients = ingredients.filter(i => i !== ingredient);
-    renderIngredients();
-    updateSearchButton();
-}
-
-function renderIngredients() {
-    ingredientsList.innerHTML = '';
-    ingredients.forEach(ing => {
-        const chip = document.createElement('div');
-        chip.className = 'chip';
-        chip.innerHTML = `
-            ${ing}
-            <button onclick="removeIngredient('${ing}')"><i class="fa-solid fa-xmark"></i></button>
+// Render Categories
+function renderCategories(categories) {
+    categoriesContainer.innerHTML = '';
+    
+    // Some basic categories to prioritize or filter if needed, but we'll show all
+    categories.forEach(category => {
+        const card = document.createElement('div');
+        card.className = `category-card ${category.strCategory === currentCategory ? 'active' : ''}`;
+        card.dataset.category = category.strCategory;
+        
+        card.innerHTML = `
+            <img src="${category.strCategoryThumb}" alt="${category.strCategory}" loading="lazy">
+            <h3>${category.strCategory}</h3>
         `;
-        ingredientsList.appendChild(chip);
+        
+        card.addEventListener('click', () => {
+            // Update active state
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            
+            // Fetch new meals
+            currentCategory = category.strCategory;
+            mealsTitle.innerHTML = `${currentCategory} Yemekleri`;
+            fetchMealsByCategory(currentCategory);
+        });
+        
+        categoriesContainer.appendChild(card);
     });
 }
 
-function updateSearchButton() {
-    searchRecipesBtn.disabled = ingredients.length === 0;
-}
-
-async function searchRecipes() {
-    if (ingredients.length === 0) return;
-    
-    if (API_KEY === 'LÜTFEN_BURAYA_API_KEY_GİRİNİZ') {
-        alert("Lütfen app.js dosyasındaki API_KEY değişkenine Spoonacular API anahtarınızı girin.");
-        return;
-    }
-
+// Fetch Meals
+async function fetchMealsByCategory(category) {
     recipesGrid.innerHTML = '';
-    loadingIndicator.classList.remove('hidden');
-
+    mealsLoading.classList.remove('hidden');
+    
     try {
-        const ingredientsStr = ingredients.join(',');
-        const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsStr}&number=12&apiKey=${API_KEY}`);
-        
-        if (!response.ok) throw new Error('API Hatası');
-        
-        const recipes = await response.json();
-        renderRecipes(recipes);
+        const response = await fetch(API_FILTER_BY_CATEGORY + category);
+        const data = await response.json();
+        renderMeals(data.meals);
     } catch (error) {
-        console.error("Hata:", error);
-        recipesGrid.innerHTML = `<p style="color: #ff4757; text-align:center; grid-column: 1/-1;">Tarifler çekilirken bir hata oluştu. API anahtarınızı kontrol edin.</p>`;
+        console.error("Yemekler yüklenirken hata:", error);
+        recipesGrid.innerHTML = '<p>Yemekler yüklenemedi.</p>';
     } finally {
-        loadingIndicator.classList.add('hidden');
+        mealsLoading.classList.add('hidden');
     }
 }
 
-function renderRecipes(recipes) {
-    if (recipes.length === 0) {
-        recipesGrid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--text-secondary);">Bu malzemelerle eşleşen tarif bulunamadı. Lütfen başka malzemeler deneyin.</p>`;
+// Render Meals
+function renderMeals(meals) {
+    if (!meals) {
+        recipesGrid.innerHTML = '<p>Bu kategoride yemek bulunamadı.</p>';
         return;
     }
-
-    recipes.forEach(recipe => {
+    
+    meals.forEach(meal => {
         const card = document.createElement('div');
         card.className = 'recipe-card';
-        card.onclick = () => fetchRecipeDetails(recipe.id);
+        card.onclick = () => fetchMealDetails(meal.idMeal);
         
         card.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" loading="lazy">
             <div class="recipe-info">
-                <h3>${recipe.title}</h3>
-                <p>Eksik Malzemeler: ${recipe.missedIngredientCount}</p>
-                <div class="stats">
-                    <span><i class="fa-solid fa-check"></i> ${recipe.usedIngredientCount} Kullanılan</span>
-                </div>
+                <h3>${meal.strMeal}</h3>
             </div>
         `;
+        
         recipesGrid.appendChild(card);
     });
 }
 
-async function fetchRecipeDetails(id) {
+// Fetch Meal Details
+async function fetchMealDetails(id) {
     recipeModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // prevent background scrolling
+    
     modalBody.innerHTML = `
-        <div style="padding: 3rem; text-align: center;">
+        <div class="spinner-container" style="height: 400px; align-items: center;">
             <div class="spinner"></div>
-            <p style="color: var(--text-secondary)">Detaylar yükleniyor...</p>
         </div>
     `;
 
     try {
-        const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
-        if (!response.ok) throw new Error('API Hatası');
-        const recipe = await response.json();
-        renderRecipeDetails(recipe);
+        const response = await fetch(API_RECIPE_DETAILS + id);
+        const data = await response.json();
+        if (data.meals && data.meals.length > 0) {
+            renderMealDetails(data.meals[0]);
+        }
     } catch (error) {
-        console.error("Hata:", error);
-        modalBody.innerHTML = `<p style="color: #ff4757; padding: 2rem; text-align:center;">Detaylar çekilemedi.</p>`;
+        console.error("Detaylar yüklenirken hata:", error);
+        modalBody.innerHTML = `<p style="padding: 2rem; text-align: center; color: #ef4444;">Detaylar yüklenemedi.</p>`;
     }
 }
 
-function renderRecipeDetails(recipe) {
-    const ingredientsHtml = recipe.extendedIngredients.map(ing => 
-        `<li>${ing.original}</li>`
-    ).join('');
-    
-    // Some spoonacular recipes have complex instructions
-    let instructionsHtml = '<p>Yapılış tarifi bulunamadı.</p>';
-    if (recipe.instructions) {
-        instructionsHtml = recipe.instructions;
-    } else if (recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0) {
-        instructionsHtml = '<ol>' + recipe.analyzedInstructions[0].steps.map(step => 
-            `<li>${step.step}</li>`
-        ).join('') + '</ol>';
+// Render Meal Details
+function renderMealDetails(meal) {
+    // Parse ingredients and measures (TheMealDB returns them as strIngredient1 to 20)
+    let ingredientsList = '';
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = meal[`strIngredient${i}`];
+        const measure = meal[`strMeasure${i}`];
+        
+        if (ingredient && ingredient.trim() !== '') {
+            ingredientsList += `
+                <li>
+                    <span>${ingredient}</span>
+                    <span class="ingredient-measure">${measure}</span>
+                </li>
+            `;
+        }
     }
+
+    const ytButton = meal.strYoutube ? 
+        `<a href="${meal.strYoutube}" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Tarifi İzle</a>` 
+        : '';
+
+    const tags = meal.strTags ? meal.strTags.split(',').map(tag => `<span style="background:var(--accent-1); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; margin-right: 0.5rem;">${tag}</span>`).join('') : '';
 
     modalBody.innerHTML = `
         <div class="modal-hero">
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
             <div class="modal-hero-overlay">
-                <h2>${recipe.title}</h2>
-                <div class="stats">
-                    <span><i class="fa-solid fa-clock"></i> ${recipe.readyInMinutes} dk</span>
-                    <span><i class="fa-solid fa-user-group"></i> ${recipe.servings} porsiyon</span>
+                <h2>${meal.strMeal}</h2>
+                <div style="margin-bottom: 1rem;">${tags}</div>
+                <div style="display: flex; gap: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <span><i class="fa-solid fa-earth-americas"></i> ${meal.strArea} Mutfağı</span>
+                    <span><i class="fa-solid fa-list"></i> ${meal.strCategory}</span>
                 </div>
             </div>
         </div>
         <div class="modal-details">
-            <h3>Malzemeler</h3>
-            <ul>
-                ${ingredientsHtml}
-            </ul>
+            <div class="ingredients-list">
+                <h3><i class="fa-solid fa-basket-shopping"></i> Malzemeler</h3>
+                <ul>
+                    ${ingredientsList}
+                </ul>
+            </div>
             
-            <h3>Yapılışı</h3>
-            <div style="color: var(--text-secondary); line-height: 1.6;">
-                ${instructionsHtml}
+            <div class="instructions-list">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3 style="margin: 0;"><i class="fa-solid fa-fire-burner"></i> Yapılışı</h3>
+                    ${ytButton}
+                </div>
+                <p>${meal.strInstructions}</p>
             </div>
         </div>
     `;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolapta Ne Var? - Akıllı Tarif Önerici</title>
+    <title>GastroKeşif - Dünya Mutfakları</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,40 +18,43 @@
 
     <main class="container">
         <header>
-            <h1><i class="fa-solid fa-kitchen-set"></i> Dolapta Ne Var?</h1>
-            <p>Elinizdeki malzemeleri girin, size özel tarifleri bulalım.</p>
+            <h1><i class="fa-solid fa-utensils"></i> GastroKeşif</h1>
+            <p>Dünya mutfaklarından en lezzetli kategorileri seçin ve keşfetmeye başlayın.</p>
         </header>
 
-        <section class="search-section glass-panel">
-            <div class="input-group">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="ingredientInput" placeholder="Malzeme ekleyin (örn: tavuk, makarna, soğan)...">
-                <button id="addBtn">Ekle</button>
+        <!-- Kategoriler -->
+        <section class="categories-section">
+            <h2 class="section-title">Kategoriler</h2>
+            <div id="categoriesLoading" class="spinner-container hidden">
+                <div class="spinner"></div>
             </div>
-            <div class="ingredients-list" id="ingredientsList">
-                <!-- Chips will appear here -->
+            <div class="categories-container" id="categoriesContainer">
+                <!-- Kategori kartları buraya gelecek -->
             </div>
-            <button id="searchRecipesBtn" class="primary-btn" disabled>Tarifleri Bul</button>
         </section>
 
-        <section class="results-section">
-            <div id="loadingIndicator" class="hidden">
+        <!-- Yemek Listesi -->
+        <section class="meals-section">
+            <div class="section-header">
+                <h2 class="section-title" id="mealsTitle">Popüler Yemekler</h2>
+            </div>
+            
+            <div id="mealsLoading" class="spinner-container hidden">
                 <div class="spinner"></div>
-                <p>Mutfakta harikalar aranıyor...</p>
             </div>
             
             <div class="recipes-grid" id="recipesGrid">
-                <!-- Recipe cards will be injected here -->
+                <!-- Yemek kartları buraya gelecek -->
             </div>
         </section>
     </main>
 
-    <!-- Recipe Detail Modal -->
+    <!-- Tarif Detay Modalı -->
     <div id="recipeModal" class="modal-overlay hidden">
         <div class="modal-content glass-panel">
             <button id="closeModalBtn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
             <div id="modalBody">
-                <!-- Modal content injected by JS -->
+                <!-- Modal içeriği JavaScript ile doldurulacak -->
             </div>
         </div>
     </div>
