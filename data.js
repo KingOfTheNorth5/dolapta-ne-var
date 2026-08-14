@@ -23,7 +23,7 @@ const localRecipes = [
         id: "2",
         title: "Kayseri Mantısı",
         category: "Hamur İşleri",
-        image: "https://www.themealdb.com/images/media/meals/xw1ruy1763786501.jpg",
+        image: "https://www.themealdb.com/images/media/meals/72fgzj1764109947.jpg",
         time: "90 dk",
         servings: "4 Kişilik",
         tags: ["Yöresel", "Kayseri", "Hamur İşi"],
@@ -136,6 +136,153 @@ const localRecipes = [
             { name: "Limon ve Baharatlar", measure: "Göz kararı" }
         ],
         instructions: "Kırmızı mercimeği yıkayıp 3 su bardağı su ile iyice yumuşayıp ezilene kadar kaynatın.\nİçinde çok az su kalmışken ocağın altını kapatın. İçine ince bulguru ekleyip karıştırın. Tencerenin kapağını kapatıp bulgurun şişmesi için 20-30 dakika bekletin.\n\nBu sırada kuru soğanları çok minik yemeklik doğrayın. Zeytinyağında pembeleşene kadar kavurun. Domates ve biber salçasını ekleyip kokusu çıkana kadar kavurun.\n\nŞişen mercimek-bulgur karışımını geniş bir tepsiye alın. Üzerine hazırladığınız salçalı soğan harcını, tuz, kimyon ve pul biberi döküp iyice yoğurun.\nİnce ince kıyılmış taze soğan ve maydanozu ekleyin. Bolca limon suyu sıkarak (isteğe göre nar ekşisi de olur) malzemeler karışana kadar nazikçe yoğurun.\n\nHarcınızdan ceviz büyüklüğünde parçalar koparıp avuç içinizde sıkarak şekil verin. Marul yaprakları üzerinde, yanında limon dilimleriyle servis yapın."
+    },
+    {
+        id: "8",
+        title: "Orijinal Adana Kebap",
+        category: "Ana Yemekler",
+        image: "https://www.themealdb.com/images/media/meals/04axct1763793018.jpg",
+        time: "60 dk",
+        servings: "4 Kişilik",
+        tags: ["Kebap", "Etli", "Izgara"],
+        ingredients: [
+            { name: "Kuzu Kıyma", measure: "500 gram (Zırh Çekimi)" },
+            { name: "Kuyruk Yağı", measure: "100 gram" },
+            { name: "Kırmızı Kapya Biber", measure: "2 adet" },
+            { name: "Tuz", measure: "1 Tatlı Kaşığı" },
+            { name: "Pul Biber", measure: "1 Yemek Kaşığı" }
+        ],
+        instructions: "Öncelikle kırmızı kapya biberleri çok ince bir şekilde doğrayın veya zırhtan geçirin. Biberlerin suyunu sıkarak iyice süzün, aksi halde kebabınız şişte tutunmaz.\nKuzu kıymayı (ideal olarak erkek kuzu boşluğu), çok ince kıyılmış kuyruk yağını, suyu sıkılmış kapya biberleri, tuz ve pul biberi geniş bir tepsiye alın.\nMalzemeleri elinizle yoğurmaya başlayın. Adana kebabın sırrı uzun yoğurmaktır. Et sakız kıvamına gelene kadar, yaklaşık 15-20 dakika yoğurun.\nYoğurduğunuz harcı buzdolabında en az 2 saat, vaktiniz varsa 1 gece dinlendirin.\nDinlenmiş etten portakal büyüklüğünde parçalar koparıp yassı şişlere, elinizi hafifçe ıslatarak yayın.\nMangal ateşinde (kömür tamamen kor haline gelip beyazlaştıktan sonra) şişleri sık sık çevirerek pişirin. Pide ve soğan salatasıyla servis yapın."
+    },
+    {
+        id: "9",
+        title: "Serinletici Naneli Cacık",
+        category: "Başlangıçlar",
+        image: "https://www.themealdb.com/images/media/meals/16zbeu1763789342.jpg",
+        time: "10 dk",
+        servings: "4 Kişilik",
+        tags: ["Soğuk", "Meze", "Yoğurtlu"],
+        ingredients: [
+            { name: "Süzme Yoğurt", measure: "2 su bardağı" },
+            { name: "Salatalık", measure: "3 adet" },
+            { name: "Sarımsak", measure: "2 diş" },
+            { name: "Taze Nane", measure: "Yarım Demet" },
+            { name: "Zeytinyağı", measure: "1 yemek kaşığı" },
+            { name: "Su", measure: "Kıvama göre" }
+        ],
+        instructions: "Salatalıkları alacalı soyduktan sonra ince ince rendeleyin (veya küp küp çok minik doğrayın).\nSarımsakları biraz tuzla ezerek püre haline getirin.\nDerin bir kasede süzme yoğurt, ezilmiş sarımsak ve azar azar soğuk su ekleyerek çırpma teliyle pürüzsüz bir kıvam alana kadar açın. Kıvamı ne çok sulu ne de çok koyu olmalıdır.\nRendelenmiş salatalıkları, incecik kıyılmış taze naneyi ve tuzu yoğurdun içine ekleyip tahta bir kaşıkla karıştırın.\nÜzerine sızma zeytinyağı gezdirip, buz küpleri ekleyerek buz gibi servis yapın."
+    },
+    {
+        id: "10",
+        title: "Bol Malzemeli Kumpir",
+        category: "Ana Yemekler",
+        image: "https://www.themealdb.com/images/media/meals/mlchx21564916997.jpg",
+        time: "75 dk",
+        servings: "2 Kişilik",
+        tags: ["Sokak Lezzeti", "Patates"],
+        ingredients: [
+            { name: "Büyük Boy Patates", measure: "2 adet" },
+            { name: "Tereyağı", measure: "2 yemek kaşığı" },
+            { name: "Kaşar Peyniri", measure: "1 su bardağı (Rendelenmiş)" },
+            { name: "Sosis", measure: "2 adet" },
+            { name: "Mısır ve Bezelye", measure: "Yarımşar çay bardağı" },
+            { name: "Zeytin ve Kornişon", measure: "Göz kararı" },
+            { name: "Ketçap & Mayonez", measure: "Üzeri için" }
+        ],
+        instructions: "Patatesleri iyice yıkayıp kuruladıktan sonra üzerine bıçakla birkaç delik açın. Daha sonra alüminyum folyoya hava almayacak şekilde sıkıca sarın.\nÖnceden ısıtılmış 200 derece fırında patatesler tamamen yumuşayana kadar (yaklaşık 60 dakika) pişirin.\nPatatesler fırından çıkar çıkmaz folyoyu açın. Ortasından uzunlamasına kesin ama tamamen ikiye bölmeyin.\nİçini bir kaşık yardımıyla kabuğuna zarar vermeden ezin. Patates sıcakken içine birer yemek kaşığı tereyağı ve bolca kaşar rendesi ekleyip, kaşarlar eriyip patatesle sakız gibi bütünleşene kadar hızla karıştırın.\nSosisleri hafifçe haşlayıp doğrayın. Püre haline gelmiş patatesin üzerine sosis, mısır, bezelye, dilimlenmiş zeytin ve doğranmış turşuyu ekleyin.\nEn üste ketçap ve mayonez sıkarak sıcak sıcak tüketin."
+    },
+    {
+        id: "11",
+        title: "Şehriyeli Pirinç Pilavı",
+        category: "Ana Yemekler",
+        image: "https://www.themealdb.com/images/media/meals/xw1ruy1763786501.jpg",
+        time: "30 dk",
+        servings: "4 Kişilik",
+        tags: ["Yancı", "Geleneksel"],
+        ingredients: [
+            { name: "Baldo Pirinç", measure: "1.5 su bardağı" },
+            { name: "Arpa Şehriye", measure: "Yarım çay bardağı" },
+            { name: "Tereyağı", measure: "2 yemek kaşığı" },
+            { name: "Sıvı Yağ", measure: "2 yemek kaşığı" },
+            { name: "Sıcak Su veya Tavuk Suyu", measure: "2.5 su bardağı" },
+            { name: "Tuz", measure: "1 Tatlı kaşığı" }
+        ],
+        instructions: "Pirinci geniş bir kaba alın, üzerine bir miktar tuz ve kaynar su ekleyip 20 dakika nişastasını salması için bekletin. Ardından soğuk suda suyu berraklaşana kadar iyice yıkayıp süzün.\nYayvan bir pilav tenceresine sıvı yağ ve tereyağını alın. Tereyağı eriyince arpa şehriyeleri ekleyin.\nŞehriyelerin rengi kahverengiye dönene kadar sürekli karıştırarak kavurun.\nSuyu tamamen süzülmüş pirinçleri ekleyin. Pirinçler şeffaflaşıp tane tane dökülene kadar (yaklaşık 5 dakika) orta ateşte kavurun.\nÜzerine sıcak suyu (ideali et veya tavuk suyudur) ve tuzu ilave edip karıştırın. Tencerenin kapağını kapatın.\nÖnce yüksek ateşte suyu kaynayana kadar, kaynadıktan sonra ise ocağın en küçük gözünde, en kısık ateşte pirinçler suyunu tamamen çekene kadar pişirin.\nOcaktan aldıktan sonra kapağın altına kağıt havlu koyarak 15-20 dakika demlenmeye bırakın."
+    },
+    {
+        id: "12",
+        title: "Acılı Antep Ezme",
+        category: "Başlangıçlar",
+        image: "https://www.themealdb.com/images/media/meals/pb6mj11763788331.jpg",
+        time: "15 dk",
+        servings: "6 Kişilik",
+        tags: ["Acılı", "Meze", "Geleneksel"],
+        ingredients: [
+            { name: "Domates", measure: "3 adet (Olgun)" },
+            { name: "Kuru Soğan", measure: "1 adet" },
+            { name: "Sivri Biber", measure: "3 adet" },
+            { name: "Sarımsak", measure: "3 diş" },
+            { name: "Biber ve Domates Salçası", measure: "Yarımşar yemek kaşığı" },
+            { name: "Zeytinyağı", measure: "3 yemek kaşığı" },
+            { name: "Nar Ekşisi", measure: "2 yemek kaşığı" },
+            { name: "Baharatlar", measure: "Göz kararı" }
+        ],
+        instructions: "Orijinal ezme robottan çekilmez, bıçakla zırhlanarak (çok ince doğranarak) yapılır.\nDomateslerin kabuklarını soyup olabildiğince minik küpler halinde doğrayın.\nSoğan, sarımsak ve çekirdekleri çıkarılmış sivri biberleri de tahtada bıçakla üzerinden defalarca geçerek çok ince kıyın.\nİncecik kıyılmış tüm sebzeleri geniş bir karıştırma kabına alın. Üzerine çok ince kıyılmış maydanoz ekleyin.\nAyrı bir kasede salçalar, zeytinyağı, nar ekşisi, limon suyu, tuz, isot, pul biber ve naneyi karıştırarak sosunu hazırlayın.\nHazırladığınız bu sosu sebzelerin üzerine döküp kaşıkla iyice ezerek harmanlayın.\nBuzdolabında 1-2 saat dinlendirirseniz lezzetler birbirine daha iyi geçecektir. Kebapların yanında soğuk servis yapın."
+    },
+    {
+        id: "13",
+        title: "Hakiki Antakya Humusu",
+        category: "Başlangıçlar",
+        image: "https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg",
+        time: "20 dk",
+        servings: "4 Kişilik",
+        tags: ["Meze", "Nohut", "Vegan"],
+        ingredients: [
+            { name: "Nohut", measure: "2 su bardağı (Haşlanmış)" },
+            { name: "Tahin", measure: "Yarım su bardağı" },
+            { name: "Limon Suyu", measure: "Yarım çay bardağı" },
+            { name: "Sarımsak", measure: "3 diş" },
+            { name: "Zeytinyağı", measure: "Yarım çay bardağı" },
+            { name: "Kimyon, Tuz", measure: "1'er Tatlı Kaşığı" },
+            { name: "Buzlu Su", measure: "2 yemek kaşığı" }
+        ],
+        instructions: "Humusun pürüzsüz ipek gibi olması için haşlanmış nohutların kabuklarını tek tek soyarak işe başlayın. Bu işlem biraz sabır ister ama sonuç mükemmeldir.\nSoyulmuş nohutları mutfak robotuna (veya blendera) alın. Üzerine ezilmiş sarımsak, limon suyu, tahin, tuz ve bolca kimyon ekleyin.\nMakineyi çalıştırın. Karışım koyu bir püre halini almaya başladığında içine yavaş yavaş zeytinyağını ve en önemlisi buzlu suyu ilave edin. Buzlu su humusun rengini açar ve kıvamını pürüzsüzleştirir.\nYaklaşık 5 dakika boyunca robotta çektikten sonra kremsi ve pürüzsüz bir kıvam alacaktır.\nHumusu geniş ve sığ bir servis tabağına yayın, ortasında kaşıkla bir havuz açın.\nServis etmeden önce üzerine ekstra sızma zeytinyağı gezdirin, kırmızı toz biber ve nohut taneleriyle süsleyin."
+    },
+    {
+        id: "14",
+        title: "Kremalı Fırın Tavuk",
+        category: "Ana Yemekler",
+        image: "https://www.themealdb.com/images/media/meals/ro8mzj1763800655.jpg",
+        time: "50 dk",
+        servings: "4 Kişilik",
+        tags: ["Tavuk", "Fırın", "Pratik"],
+        ingredients: [
+            { name: "Tavuk Baget veya But", measure: "6 adet" },
+            { name: "Patates", measure: "3 adet" },
+            { name: "Sıvı Krema", measure: "1 kutu (200ml)" },
+            { name: "Zeytinyağı", measure: "2 yemek kaşığı" },
+            { name: "Kekik, Köri, Karabiber", measure: "Göz kararı" },
+            { name: "Sarımsak", measure: "2 diş" }
+        ],
+        instructions: "Patatesleri elma dilimi şeklinde kalın kalın doğrayın ve fırın kabının tabanına dizin.\nTavuk parçalarını yıkayıp kuruladıktan sonra derin bir kaseye alın.\nÜzerine zeytinyağı, rendelenmiş sarımsak, tuz, karabiber, kekik ve az miktarda köri ekleyerek tavukları bu sosta elinizle iyice harmanlayın.\nSosuyla bütünleşen tavukları fırın kabındaki patateslerin üzerine yerleştirin.\nSon olarak 1 kutu sıvı kremayı tavukların ve patateslerin üzerinde eşit şekilde gezdirin.\nÖnceden ısıtılmış 200 derece fırında, tavukların üzeri nar gibi kızarıp patatesler yumuşayana kadar yaklaşık 40-45 dakika pişirin. Kendi sosuyla birlikte sıcak servis yapın."
+    },
+    {
+        id: "15",
+        title: "Zeytinyağlı Enginar",
+        category: "Zeytinyağlılar",
+        image: "https://www.themealdb.com/images/media/meals/z458v91763817681.jpg",
+        time: "40 dk",
+        servings: "4 Kişilik",
+        tags: ["Enginar", "Vegan", "Hafif"],
+        ingredients: [
+            { name: "Ayıklanmış Enginar Çanağı", measure: "4 adet" },
+            { name: "Garnitür", measure: "1 kase" },
+            { name: "Zeytinyağı", measure: "Yarım çay bardağı" },
+            { name: "Portakal Suyu", measure: "1 su bardağı" },
+            { name: "Limon", measure: "Yarım adet" },
+            { name: "Dereotu", measure: "Süslemek için" }
+        ],
+        instructions: "Kararmamaları için limonlu suda beklettiğiniz enginar çanaklarını geniş ve yayvan bir tencereye tek sıra halinde dizin.\nOrta kısımlarına havuç, patates ve bezelyeden oluşan garnitürü tepeleme doldurun.\nAyrı bir kasede zeytinyağı, taze sıkılmış portakal suyu, yarım limonun suyu, tuz ve 1 tatlı kaşığı toz şekeri karıştırarak sosunu hazırlayın.\nHazırladığınız bu özel sosu enginarların üzerine kaşıkla gezdirerek dökün.\nTencerenin tabanında kalan su yeterli gelmezse yarım çay bardağı kadar ılık su ilave edebilirsiniz.\nTencerenin kapağını kapatın ve kaynayana kadar orta ateşte, kaynadıktan sonra kısık ateşte enginarlar çatal batacak kıvama gelene kadar yaklaşık 25-30 dakika pişirin.\nPişen enginarları tenceresinde kapağı kapalı olarak soğumaya bırakın (Zeytinyağlılar kendi tenceresinde soğumalıdır). Servis yaparken üzerine bolca taze dereotu serpiştirin."
     }
 ];
 
