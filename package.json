@@ -1,0 +1,12 @@
+{
+  "name": "dolapta-ne-var",
+  "version": "1.0.0",
+  "description": "Akıllı Tarif Önerici",
+  "main": "app.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
