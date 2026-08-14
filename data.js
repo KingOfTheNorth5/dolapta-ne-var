@@ -233,7 +233,7 @@ const localRecipes = [
         id: "13",
         title: "Hakiki Antakya Humusu",
         category: "Başlangıçlar",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Hummus_with_olive_oil_and_pine_nuts.jpg",
+        image: "https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg",
         time: "20 dk",
         servings: "4 Kişilik",
         tags: ["Meze", "Nohut", "Vegan"],
@@ -345,7 +345,7 @@ const localRecipes = [
         id: "19",
         title: "Kremalı Domates Çorbası",
         category: "Çorbalar",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tomato_soup.jpg",
+        image: "https://www.themealdb.com/images/media/meals/stpuws1511191310.jpg",
         time: "25 dk",
         servings: "4 Kişilik",
         tags: ["Klasik", "Pratik", "Hafif"],
@@ -368,5 +368,5 @@ const appCategories = [
     { id: "cat3", name: "Zeytinyağlılar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vi%C5%9Fneli_Yaprak_Sarma.jpg/960px-Vi%C5%9Fneli_Yaprak_Sarma.jpg" },
     { id: "cat4", name: "Hamur İşleri", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg/960px-Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg" },
     { id: "cat5", name: "Tatlılar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg/960px-S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg" },
-    { id: "cat6", name: "Başlangıçlar", image: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Hummus_with_olive_oil_and_pine_nuts.jpg" }
+    { id: "cat6", name: "Başlangıçlar", image: "https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg" }
 ];
