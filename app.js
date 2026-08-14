@@ -277,11 +277,15 @@ function renderMealDetails(meal) {
     }
 
     const ytButton = meal.strYoutube ? 
-        `<a href="${meal.strYoutube}" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Tarifi İzle</a>` 
+        `<a href="${meal.strYoutube}" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> İzle</a>` 
         : '';
 
-    const trArea = areaTranslations[meal.strArea] || meal.strArea;
-    const trCat = categoryTranslations[meal.strCategory] || meal.strCategory;
+    const translateBtn = `<a href="https://translate.google.com/?sl=en&tl=tr&text=${encodeURIComponent(meal.strInstructions)}" target="_blank" class="translate-btn" style="background:#4285F4; color:white; padding:0.8rem 1.5rem; border-radius:50px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem; transition:transform 0.3s; box-shadow:0 4px 10px rgba(66, 133, 244, 0.2);"><i class="fa-solid fa-language"></i> Çevir</a>`;
+
+    const areaStr = (meal.strArea && meal.strArea !== 'null') ? meal.strArea : 'Unknown';
+    const trArea = areaTranslations[areaStr] || areaStr;
+    const catStr = meal.strCategory || '';
+    const trCat = categoryTranslations[catStr] || catStr;
 
     const tags = meal.strTags ? meal.strTags.split(',').map(tag => `<span style="background:white; color:var(--text-primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
 
@@ -308,7 +312,10 @@ function renderMealDetails(meal) {
             <div class="instructions-list">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h3 style="margin: 0;"><i class="fa-solid fa-fire-burner"></i> Yapılışı</h3>
-                    ${ytButton}
+                    <div style="display:flex; gap:0.5rem;">
+                        ${translateBtn}
+                        ${ytButton}
+                    </div>
                 </div>
                 <p>${meal.strInstructions}</p>
             </div>
