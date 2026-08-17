@@ -369,4 +369,290 @@ const appCategories = [
     { id: "cat4", name: "Hamur İşleri", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg/960px-Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg" },
     { id: "cat5", name: "Tatlılar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg/960px-S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg" },
     { id: "cat6", name: "Başlangıçlar", image: "https://www.themealdb.com/images/media/meals/gpon5u1763801180.jpg" }
+,
+    {
+    "id": "20",
+    "title": "Etli Kuru Fasulye",
+    "category": "Ana Yemekler",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Kuru_fasulye.jpg/960px-Kuru_fasulye.jpg",
+    "time": "60 dk",
+    "servings": "4 Ki�ilik",
+    "tags": [
+        "Geleneksel",
+        "Sulu Yemek",
+        "Etli"
+    ],
+    "ingredients": [
+        {
+            "name": "Kuru Fasulye",
+            "measure": "2 su barda��"
+        },
+        {
+            "name": "Ku�ba�� Et",
+            "measure": "300 gram"
+        },
+        {
+            "name": "Kuru So�an",
+            "measure": "1 adet"
+        },
+        {
+            "name": "Domates Sal�as�",
+            "measure": "1 yemek ka����"
+        },
+        {
+            "name": "Biber Sal�as�",
+            "measure": "1 tatl� ka����"
+        },
+        {
+            "name": "S�v� Ya�",
+            "measure": "3 yemek ka����"
+        },
+        {
+            "name": "Tuz, Karabiber",
+            "measure": "G�z karar�"
+        }
+    ],
+    "instructions": "Fasulyeleri bir gece �nceden �slat�n.\\nEti tencerede suyunu sal�p �ekene kadar kavurun.\\nSo�anlar� yemeklik do�ray�p s�v� ya� ile birlikte etin �zerine ekleyin ve pembele�ene kadar kavurun.\\nSal�alar� ekleyip kokusu ��kana kadar kavurmaya devam edin.\\nS�zd���n�z fasulyeleri tencereye al�n, �zerini 2-3 parmak ge�ecek kadar s�cak su, tuz ve karabiber ilave edin.\\nD�d�kl� tencerede yakla��k 30-40 dakika, normal tencerede ise fasulyeler yumu�ayana kadar pi�irin. Yan�nda pilav ile servis yap�n."
+},
+    {
+    "id": "21",
+    "title": "Lahmacun (Ev Usul�)",
+    "category": "Ana Yemekler",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lahmacun_in_a_restaurant.jpg/960px-Lahmacun_in_a_restaurant.jpg",
+    "time": "45 dk",
+    "servings": "6 Adet",
+    "tags": [
+        "F�r�n",
+        "Geleneksel",
+        "Etli"
+    ],
+    "ingredients": [
+        {
+            "name": "K�yma",
+            "measure": "300 gram (Orta ya�l�)"
+        },
+        {
+            "name": "So�an",
+            "measure": "2 adet"
+        },
+        {
+            "name": "Domates",
+            "measure": "2 adet"
+        },
+        {
+            "name": "Sivri Biber",
+            "measure": "2 adet"
+        },
+        {
+            "name": "Maydanoz",
+            "measure": "Yar�m demet"
+        },
+        {
+            "name": "Biber Sal�as�",
+            "measure": "1 yemek ka����"
+        },
+        {
+            "name": "S�v� Ya�",
+            "measure": "Yar�m �ay barda��"
+        },
+        {
+            "name": "Haz�r Yufka veya Lava�",
+            "measure": "6 adet (Pratik i�in)"
+        }
+    ],
+    "instructions": "So�an, domates, biber ve maydanozu mutfak robotundan �ok ince olacak �ekilde ge�irin.\\n�ekti�iniz sebzeleri k�yma, s�v� ya�, sal�a ve baharatlarla (tuz, karabiber, pul biber, isot) geni� bir kapta iyice yo�urun.\\nHarc�n�z�n s�r�lebilir k�vamda olmas� i�in gerekirse �ok az su ekleyin.\\nF�r�n tepsisine dizdi�iniz lava� veya hamur bezelerinin �zerine harc� ince bir tabaka halinde yay�n.\\n�nceden �s�t�lm�� 220 derece f�r�nda kenarlar� k�zarana kadar pi�irin.\\nS�cakken aras�na bol ye�illik ve limon s�karak servis yap�n."
+},
+    {
+    "id": "22",
+    "title": "H�nkar Be�endi",
+    "category": "Ana Yemekler",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/H%C3%BCnkar_be%C4%9Fendi_2.jpg/960px-H%C3%BCnkar_be%C4%9Fendi_2.jpg",
+    "time": "60 dk",
+    "servings": "4 Ki�ilik",
+    "tags": [
+        "Saray Mutfa��",
+        "Etli",
+        "Patl�canl�"
+    ],
+    "ingredients": [
+        {
+            "name": "Ku�ba�� Et",
+            "measure": "400 gram"
+        },
+        {
+            "name": "So�an",
+            "measure": "1 adet"
+        },
+        {
+            "name": "Sal�a",
+            "measure": "1 yemek ka����"
+        },
+        {
+            "name": "Patl�can",
+            "measure": "4 adet (K�zlenmi�)"
+        },
+        {
+            "name": "Tereya��",
+            "measure": "2 yemek ka����"
+        },
+        {
+            "name": "Un",
+            "measure": "2 yemek ka����"
+        },
+        {
+            "name": "S�t",
+            "measure": "1,5 su barda��"
+        },
+        {
+            "name": "Ka�ar Peyniri",
+            "measure": "Yar�m su barda�� (Rendelenmi�)"
+        }
+    ],
+    "instructions": "�nce tas kebab�n� haz�rlay�n: Etleri tencerede suyunu �ekene kadar kavurun, so�an� ekleyip kavurmaya devam edin. Sal�a, tuz, karabiber ve �zerini ge�ecek kadar s�cak su ekleyip etler yumu�ayana kadar pi�irin.\\nBe�endi k�sm� i�in: Patl�canlar� k�zleyip kabuklar�n� soyun ve ince ince do�ray�n.\\nBa�ka bir tencerede tereya��n� eritip unu kokusu ��kana kadar kavurun.\\nKavrulan una s�rekli kar��t�rarak so�uk s�t� ekleyin. K�vam al�nca i�ine k�zlenmi� patl�canlar�, tuzu ve karabiberi ilave edip kar��t�r�n.\\nEn son ka�ar peynirini ekleyip eriyene kadar kar��t�r�n ve ocaktan al�n.\\nServis taba��na �nce be�endiyi yay�n, �zerine haz�rlad���n�z etli yeme�i ekleyerek servis yap�n."
+},
+    {
+    "id": "23",
+    "title": "Ali Nazik",
+    "category": "Ana Yemekler",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Alinazik_kebab%C4%B1.jpg/960px-Alinazik_kebab%C4%B1.jpg",
+    "time": "40 dk",
+    "servings": "3 Ki�ilik",
+    "tags": [
+        "Geleneksel",
+        "Etli",
+        "Yo�urtlu"
+    ],
+    "ingredients": [
+        {
+            "name": "K�yma",
+            "measure": "300 gram"
+        },
+        {
+            "name": "So�an",
+            "measure": "1 adet"
+        },
+        {
+            "name": "Patl�can",
+            "measure": "3 adet (K�zlenmi�)"
+        },
+        {
+            "name": "S�zme Yo�urt",
+            "measure": "1,5 su barda��"
+        },
+        {
+            "name": "Sar�msak",
+            "measure": "2 di�"
+        },
+        {
+            "name": "Tereya��",
+            "measure": "2 yemek ka����"
+        },
+        {
+            "name": "Pul biber",
+            "measure": "1 tatl� ka����"
+        }
+    ],
+    "instructions": "K�ymay� ve ince do�ranm�� so�an� bir tavada kavurun. Tuz, karabiber ve pul biber ekleyip ocaktan al�n.\\nPatl�canlar� k�zleyip kabuklar�n� soyun, ince ince do�ray�n.\\nSar�msaklar� ezip s�zme yo�urt ile kar��t�r�n, i�ine biraz tuz ekleyin.\\nK�zlenmi� patl�canlar� ezilmi� sar�msakl� yo�urt ile geni� bir kasede iyice kar��t�r�n.\\nServis taba��n�n taban�na yo�urtlu patl�canl� kar���m� yay�n.\\n�zerine kavrulmu� k�ymal� harc� d�k�n.\\nEn �ste tereya��nda k�zd�r�lm�� pul biber gezdirerek s�cak servis yap�n."
+},
+    {
+    "id": "24",
+    "title": "Baklava (Cevizli)",
+    "category": "Tatl�lar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.jpg/960px-Baklava%281%29.jpg",
+    "time": "90 dk",
+    "servings": "10 Ki�ilik",
+    "tags": [
+        "�erbetli",
+        "Geleneksel",
+        "Bayram"
+    ],
+    "ingredients": [
+        {
+            "name": "Baklaval�k Yufka",
+            "measure": "1 paket (Haz�r)"
+        },
+        {
+            "name": "Ceviz ��i",
+            "measure": "2 su barda�� (�ekilmi�)"
+        },
+        {
+            "name": "Tereya��",
+            "measure": "250 gram (Eritilmi�)"
+        },
+        {
+            "name": "�eker",
+            "measure": "3 su barda�� (�erbet i�in)"
+        },
+        {
+            "name": "Su",
+            "measure": "3 su barda�� (�erbet i�in)"
+        },
+        {
+            "name": "Limon",
+            "measure": "1 dilim"
+        }
+    ],
+    "instructions": "�ncelikle �erbet i�in su ve �ekeri tencereye al�n, kaynamaya ba�lay�nca limonu ekleyip 15 dakika k�s�k ate�te kaynat�n. Ard�ndan so�umaya b�rak�n.\\nTereya��n� k�s�k ate�te eritin, �zerindeki k�p�kleri (tortuyu) mutlaka al�n (baklavan�n �zerinde siyah noktalar olmamas� i�in).\\nF�r�n tepsisini ya�lay�n, yufkalar�n yar�s�n� aralar�na f�r�ayla eritilmi� tereya�� s�rerek �st �ste dizin.\\nOrtas�na �ekilmi� cevizi bolca serpi�tirin.\\nKalan yufkalar� da ayn� �ekilde aralar�n� ya�layarak �st �ste dizin.\\nBaklavay� istedi�iniz �ekilde dilimleyin (kare veya havu� dilimi) ve kalan tereya��n� �zerine gezdirin.\\n�nceden �s�t�lm�� 180 derece f�r�nda �zeri ve alt� nar gibi k�zarana kadar (yakla��k 45-50 dakika) pi�irin.\\nF�r�ndan ��kan s�cak baklavan�n �zerine so�uk �erbeti d�k�n. En az 2-3 saat dinlendirdikten sonra servis yap�n."
+},
+    {
+    "id": "25",
+    "title": "�i� K�fte (Etsiz)",
+    "category": "Ba�lang��lar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%C3%87i%C4%9F_k%C3%B6fte_2.jpg/960px-%C3%87i%C4%9F_k%C3%B6fte_2.jpg",
+    "time": "40 dk",
+    "servings": "6 Ki�ilik",
+    "tags": [
+        "Y�resel",
+        "Pratik",
+        "Etsiz",
+        "Ac�"
+    ],
+    "ingredients": [
+        {
+            "name": "Esmer �nce Bulgur",
+            "measure": "2,5 su barda��"
+        },
+        {
+            "name": "S�cak Su",
+            "measure": "1,5 su barda�� (Islatmak i�in)"
+        },
+        {
+            "name": "So�an",
+            "measure": "1 adet"
+        },
+        {
+            "name": "Sar�msak",
+            "measure": "3 di�"
+        },
+        {
+            "name": "Domates Sal�as�",
+            "measure": "2 yemek ka����"
+        },
+        {
+            "name": "Biber Sal�as�",
+            "measure": "3 yemek ka����"
+        },
+        {
+            "name": "�sot",
+            "measure": "3 yemek ka����"
+        },
+        {
+            "name": "S�v� Ya� / Zeytinya��",
+            "measure": "1 �ay barda��"
+        },
+        {
+            "name": "Nar Ek�isi",
+            "measure": "3 yemek ka����"
+        },
+        {
+            "name": "Limon",
+            "measure": "1 adet"
+        },
+        {
+            "name": "Tuz, Kimyon, Karabiber",
+            "measure": "G�z karar�"
+        }
+    ],
+    "instructions": "Bulguru geni� bir yo�urma tepsisine al�n, �zerine s�cak suyu ekleyip �zerini kapat�n ve 15 dakika �i�mesini bekleyin.\\nBu s�rada so�an ve sar�msaklar� �ok ince rendeleyin (so�an�n suyunu s�karak ac�s�n� al�n).\\n�i�en bulgurun �zerine rendelenmi� so�an, sar�msak, sal�alar, isot ve baharatlar� ekleyin.\\nYakla��k 20-25 dakika boyunca bulgurlar tamamen ezilip macun k�vam�na gelene kadar yo�urun.\\nK�vam alan k�fteye ya�, nar ek�isi ve limon suyunu ekleyip 5-10 dakika daha yo�urun.\\nElinizle par�alar kopar�p s�karak �ekil verin.\\nMarul, limon ve nar ek�isi ile servis yap�n."
+}
 ];
