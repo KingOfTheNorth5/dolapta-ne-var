@@ -1,3 +1,4 @@
+
 // DOM Elements
 const categoriesContainer = document.getElementById('categoriesContainer');
 const recipesGrid = document.getElementById('recipesGrid');
@@ -6,11 +7,25 @@ const recipeModal = document.getElementById('recipeModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modalBody = document.getElementById('modalBody');
 
+// --- NEW ELEMENTS ---
+const themeToggle = document.getElementById('themeToggle');
+const globalSearch = document.getElementById('globalSearch');
+
 // State
-let currentCategory = 'Ana Yemekler'; 
+let currentCategory = 'Ana Yemekler';
+let favorites = JSON.parse(localStorage.getItem('dolap_favorites')) || [];
+let currentPortionMultiplier = 1;
+let currentMealId = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    
+    // Add "Favorilerim" to categories dynamically if it doesn't exist
+    if (!appCategories.find(c => c.name === '🌟 Favorilerim')) {
+        appCategories.unshift({ id: 'fav', name: '🌟 Favorilerim', image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=400&fit=crop' });
+    }
+
     renderCategories();
     fetchMealsByCategory(currentCategory);
 });
@@ -28,6 +43,54 @@ recipeModal.addEventListener('click', (e) => {
     }
 });
 
+// --- THEME ---
+function initTheme() {
+    const savedTheme = localStorage.getItem('dolap_theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('dolap_theme', 'light');
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('dolap_theme', 'dark');
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+    });
+}
+
+// --- GLOBAL SEARCH ---
+if (globalSearch) {
+    globalSearch.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        
+        // Remove active category
+        document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+        
+        if (term === '') {
+            mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
+            fetchMealsByCategory(currentCategory);
+            return;
+        }
+
+        const matched = localRecipes.filter(r => r.title.toLowerCase().includes(term) || r.category.toLowerCase().includes(term));
+        mealsTitle.innerHTML = `Arama Sonuçları: "${term}" (${matched.length})`;
+        
+        // View Transitions for smooth filtering
+        if (document.startViewTransition) {
+            document.startViewTransition(() => renderMeals(matched));
+        } else {
+            renderMeals(matched);
+        }
+    });
+}
+
 // Render Categories
 function renderCategories() {
     categoriesContainer.innerHTML = '';
@@ -42,41 +105,79 @@ function renderCategories() {
         `;
         
         card.addEventListener('click', () => {
+            if (globalSearch) globalSearch.value = ''; // clear search
             document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
             card.classList.add('active');
             
             currentCategory = category.name;
-            mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
-            fetchMealsByCategory(currentCategory);
+            mealsTitle.innerHTML = `${currentCategory} ${currentCategory === '🌟 Favorilerim' ? '' : 'Tarifleri'}`;
+            
+            if (document.startViewTransition) {
+                document.startViewTransition(() => fetchMealsByCategory(currentCategory));
+            } else {
+                fetchMealsByCategory(currentCategory);
+            }
         });
         
         categoriesContainer.appendChild(card);
     });
     
-    mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
+    mealsTitle.innerHTML = `${currentCategory} ${currentCategory === '🌟 Favorilerim' ? '' : 'Tarifleri'}`;
 }
 
 // Fetch Meals (Local DB)
 function fetchMealsByCategory(category) {
     recipesGrid.innerHTML = '';
     
-    const filteredMeals = localRecipes.filter(meal => meal.category === category);
+    let filteredMeals;
+    if (category === '🌟 Favorilerim') {
+        filteredMeals = localRecipes.filter(meal => favorites.includes(meal.id));
+    } else {
+        filteredMeals = localRecipes.filter(meal => meal.category === category);
+    }
+    
     renderMeals(filteredMeals);
+}
+
+// --- FAVORITES ---
+window.toggleFavorite = function(e, id) {
+    e.stopPropagation(); // prevent modal opening
+    const index = favorites.indexOf(id);
+    if (index === -1) {
+        favorites.push(id);
+    } else {
+        favorites.splice(index, 1);
+    }
+    localStorage.setItem('dolap_favorites', JSON.stringify(favorites));
+    
+    // Refresh view if in favorites tab
+    if (currentCategory === '🌟 Favorilerim') {
+        fetchMealsByCategory(currentCategory);
+    } else {
+        // Just toggle class on the button
+        e.target.closest('.fav-btn').classList.toggle('active');
+    }
 }
 
 function renderMeals(meals) {
     if (!meals || meals.length === 0) {
-        recipesGrid.innerHTML = '<p style="color:var(--text-secondary);">Bu kategoriye ait henüz tarif eklenmedi.</p>';
+        recipesGrid.innerHTML = '<p style="color:var(--text-secondary);">Bu kategoriye ait henüz tarif eklenmedi veya bulunamadı.</p>';
         return;
     }
     
+    recipesGrid.innerHTML = '';
     meals.forEach(meal => {
         const card = document.createElement('div');
         card.className = 'recipe-card';
         card.onclick = () => fetchMealDetails(meal.id);
         
+        const isFav = favorites.includes(meal.id);
+        
         card.innerHTML = `
-            <img src="${meal.image}" alt="${meal.title}" loading="lazy">
+            <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite(event, '${meal.id}')">
+                <i class="fa-solid fa-heart"></i>
+            </button>
+            <img src="${meal.image}" alt="${meal.title}" loading="lazy" style="view-transition-name: meal-img-${meal.id}">
             <div class="recipe-info">
                 <h3>${meal.title}</h3>
             </div>
@@ -91,39 +192,84 @@ function fetchMealDetails(id) {
     const meal = localRecipes.find(m => m.id === id);
     if (!meal) return;
     
+    currentMealId = id;
+    currentPortionMultiplier = 1; // reset multiplier
+    
     recipeModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden'; 
     renderMealDetails(meal);
 }
 
+// --- PORTION CALCULATOR ---
+window.changePortion = function(change) {
+    const meal = localRecipes.find(m => m.id === currentMealId);
+    if (!meal) return;
+    
+    const baseServings = parseInt(meal.servings) || 4; // fallback to 4 if parsing fails
+    const currentServings = Math.max(1, (baseServings * currentPortionMultiplier) + change);
+    
+    currentPortionMultiplier = currentServings / baseServings;
+    
+    renderMealDetails(meal);
+}
+
+function parseMeasure(measureStr, multiplier) {
+    // Basic regex to find numbers (including decimals/fractions) at the start
+    const match = measureStr.match(/^([d.,]+)s*(.*)/);
+    if (match) {
+        let numStr = match[1].replace(',', '.');
+        let num = parseFloat(numStr);
+        if (!isNaN(num)) {
+            let calculated = num * multiplier;
+            // Round to 1 decimal if needed
+            calculated = Math.round(calculated * 10) / 10;
+            return `${calculated} ${match[2]}`;
+        }
+    }
+    return measureStr; // Return as is if no number found
+}
+
 function renderMealDetails(meal) {
     let ingredientsList = '';
     meal.ingredients.forEach(item => {
+        let calculatedMeasure = currentPortionMultiplier !== 1 
+            ? parseMeasure(item.measure, currentPortionMultiplier) 
+            : item.measure;
+            
         ingredientsList += `
             <li>
                 <span>${item.name}</span>
-                <span class="ingredient-measure">${item.measure}</span>
+                <span class="ingredient-measure">${calculatedMeasure}</span>
             </li>
         `;
     });
 
-    const tagsHTML = meal.tags ? meal.tags.map(tag => `<span style="background:white; color:var(--text-primary); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
+    const tagsHTML = meal.tags ? meal.tags.map(tag => `<span style="background:var(--accent-primary); color:white; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem; font-weight:600;">${tag}</span>`).join('') : '';
+
+    const baseServings = parseInt(meal.servings) || 4;
+    const displayServings = Math.max(1, Math.round(baseServings * currentPortionMultiplier));
 
     modalBody.innerHTML = `
         <div class="modal-hero">
-            <img src="${meal.image}" alt="${meal.title}">
+            <img src="${meal.image}" alt="${meal.title}" style="view-transition-name: meal-img-${meal.id}">
             <div class="modal-hero-overlay">
                 <h2>${meal.title}</h2>
                 <div style="margin-bottom: 1rem;">${tagsHTML}</div>
-                <div style="display: flex; gap: 1.5rem; color: rgba(255,255,255,0.9); font-size: 1rem;">
+                <div style="display: flex; align-items:center; gap: 1.5rem; color: rgba(255,255,255,0.9); font-size: 1.1rem;">
                     <span><i class="fa-solid fa-clock"></i> ${meal.time}</span>
-                    <span><i class="fa-solid fa-user-group"></i> ${meal.servings}</span>
+                    <div class="portion-controls" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); color:white;">
+                        <button class="portion-btn" style="color:white;" onclick="changePortion(-1)">-</button>
+                        <span><i class="fa-solid fa-user-group"></i> ${displayServings} Kişilik</span>
+                        <button class="portion-btn" style="color:white;" onclick="changePortion(1)">+</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="modal-details">
             <div class="ingredients-list">
-                <h3><i class="fa-solid fa-basket-shopping"></i> Malzemeler</h3>
+                <div class="ingredients-header">
+                    <h3 style="margin:0;"><i class="fa-solid fa-basket-shopping"></i> Malzemeler</h3>
+                </div>
                 <ul>
                     ${ingredientsList}
                 </ul>
@@ -156,7 +302,7 @@ if (addIngredientBtn) {
     clearFridgeBtn.addEventListener('click', () => {
         userIngredients = [];
         renderIngredients();
-        mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
+        mealsTitle.innerHTML = `${currentCategory} ${currentCategory === '🌟 Favorilerim' ? '' : 'Tarifleri'}`;
         fetchMealsByCategory(currentCategory);
     });
     searchFridgeBtn.addEventListener('click', searchFridgeRecipes);
@@ -171,7 +317,6 @@ function addIngredient() {
     }
 }
 
-// Global scope for onclick access
 window.removeIngredient = function(index) {
     userIngredients.splice(index, 1);
     renderIngredients();
@@ -210,5 +355,10 @@ function searchFridgeRecipes() {
 
     document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
     mealsTitle.innerHTML = `Dolabımdakilerle Yapılabilecekler (${matchedRecipes.length} Tarif)`;
-    renderMeals(matchedRecipes);
+    
+    if (document.startViewTransition) {
+        document.startViewTransition(() => renderMeals(matchedRecipes));
+    } else {
+        renderMeals(matchedRecipes);
+    }
 }

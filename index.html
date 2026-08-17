@@ -14,10 +14,21 @@
     <div class="background-texture"></div>
 
     <main class="container">
+        
         <header>
+            <div class="header-top">
+                <div></div>
+                <button id="themeToggle" class="theme-toggle" title="Gece/Gündüz Modu"><i class="fa-solid fa-moon"></i></button>
+            </div>
             <h1>Türk Mutfağı Rehberi</h1>
-            <p>Yüzlerce yıllık lezzet mirasımız, en özel ve ölçülü tariflerle burada.</p>
+            <p style="margin-bottom:2rem;">Yüzlerce yıllık lezzet mirasımız, en özel ve ölçülü tariflerle burada.</p>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="globalSearch" class="search-input" placeholder="Tarif ara... (Örn: Mantı, Çorba)" autocomplete="off">
+            </div>
         </header>
+
 
         <!-- Dolabımda Ne Var -->
         <section class="fridge-section" style="margin-bottom: 3rem; background: var(--card-bg); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
