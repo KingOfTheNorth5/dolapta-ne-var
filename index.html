@@ -19,6 +19,23 @@
             <p>Yüzlerce yıllık lezzet mirasımız, en özel ve ölçülü tariflerle burada.</p>
         </header>
 
+        <!-- Dolabımda Ne Var -->
+        <section class="fridge-section" style="margin-bottom: 3rem; background: var(--card-bg); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);">
+            <h2 class="section-title"><i class="fa-solid fa-kitchen-set"></i> Dolabımda Ne Var?</h2>
+            <div class="fridge-container">
+                <p style="color:var(--text-secondary); margin-bottom:1rem;">Elinizdeki malzemeleri yazın, size uygun tarifleri bulalım.</p>
+                <div class="fridge-input-group" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <input type="text" id="ingredientInput" placeholder="Örn: Patlıcan, Kıyma, Domates..." autocomplete="off" style="flex: 1; padding: 0.8rem 1.2rem; border-radius: 50px; border: 1px solid var(--border-color); outline: none; font-family: inherit; font-size: 1rem;">
+                    <button id="addIngredientBtn" style="background: var(--bg-color); border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 0.8rem 1.5rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;"><i class="fa-solid fa-plus"></i> Ekle</button>
+                    <button id="searchFridgeBtn" style="background: var(--accent-primary); border: none; color: white; padding: 0.8rem 1.5rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;"><i class="fa-solid fa-magnifying-glass"></i> Tarif Bul</button>
+                    <button id="clearFridgeBtn" style="background: #f1f5f9; border: none; color: var(--text-secondary); padding: 0.8rem 1.5rem; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;" title="Temizle"><i class="fa-solid fa-trash"></i></button>
+                </div>
+                <div class="selected-ingredients" id="selectedIngredients" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <!-- Seçilen malzemeler buraya gelecek -->
+                </div>
+            </div>
+        </section>
+
         <!-- Kategoriler -->
         <section class="categories-section" id="categoriesSection">
             <h2 class="section-title">Kategoriler</h2>

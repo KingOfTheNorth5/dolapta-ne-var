@@ -138,3 +138,77 @@ function renderMealDetails(meal) {
         </div>
     `;
 }
+
+// --- DOLABIMDA NE VAR LOGIC ---
+const ingredientInput = document.getElementById('ingredientInput');
+const addIngredientBtn = document.getElementById('addIngredientBtn');
+const searchFridgeBtn = document.getElementById('searchFridgeBtn');
+const clearFridgeBtn = document.getElementById('clearFridgeBtn');
+const selectedIngredientsContainer = document.getElementById('selectedIngredients');
+
+let userIngredients = [];
+
+if (addIngredientBtn) {
+    addIngredientBtn.addEventListener('click', addIngredient);
+    ingredientInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addIngredient();
+    });
+    clearFridgeBtn.addEventListener('click', () => {
+        userIngredients = [];
+        renderIngredients();
+        mealsTitle.innerHTML = `${currentCategory} Tarifleri`;
+        fetchMealsByCategory(currentCategory);
+    });
+    searchFridgeBtn.addEventListener('click', searchFridgeRecipes);
+}
+
+function addIngredient() {
+    const val = ingredientInput.value.trim().toLowerCase();
+    if (val && !userIngredients.includes(val)) {
+        userIngredients.push(val);
+        ingredientInput.value = '';
+        renderIngredients();
+    }
+}
+
+// Global scope for onclick access
+window.removeIngredient = function(index) {
+    userIngredients.splice(index, 1);
+    renderIngredients();
+}
+
+function renderIngredients() {
+    selectedIngredientsContainer.innerHTML = '';
+    userIngredients.forEach((ing, index) => {
+        const tag = document.createElement('span');
+        tag.style = 'background: var(--accent-primary); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;';
+        tag.innerHTML = `${ing} <i class="fa-solid fa-xmark" style="cursor:pointer;" onclick="removeIngredient(${index})"></i>`;
+        selectedIngredientsContainer.appendChild(tag);
+    });
+}
+
+function searchFridgeRecipes() {
+    if (userIngredients.length === 0) {
+        alert('Lütfen önce dolabınızdaki malzemeleri ekleyin.');
+        return;
+    }
+    
+    const matchedRecipes = localRecipes.map(recipe => {
+        let matchCount = 0;
+        recipe.ingredients.forEach(ingObj => {
+            const recipeIng = ingObj.name.toLowerCase();
+            userIngredients.forEach(userIng => {
+                if (recipeIng.includes(userIng)) {
+                    matchCount++;
+                }
+            });
+        });
+        return { recipe, matchCount };
+    }).filter(item => item.matchCount > 0)
+      .sort((a, b) => b.matchCount - a.matchCount)
+      .map(item => item.recipe);
+
+    document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+    mealsTitle.innerHTML = `Dolabımdakilerle Yapılabilecekler (${matchedRecipes.length} Tarif)`;
+    renderMeals(matchedRecipes);
+}
