@@ -266,24 +266,7 @@ const localRecipes = [
         ],
         instructions: "Patatesleri elma dilimi şeklinde kalın kalın doğrayın ve fırın kabının tabanına dizin.\nTavuk parçalarını yıkayıp kuruladıktan sonra derin bir kaseye alın.\nÜzerine zeytinyağı, rendelenmiş sarımsak, tuz, karabiber, kekik ve az miktarda köri ekleyerek tavukları bu sosta elinizle iyice harmanlayın.\nSosuyla bütünleşen tavukları fırın kabındaki patateslerin üzerine yerleştirin.\nSon olarak 1 kutu sıvı kremayı tavukların ve patateslerin üzerinde eşit şekilde gezdirin.\nÖnceden ısıtılmış 200 derece fırında, tavukların üzeri nar gibi kızarıp patatesler yumuşayana kadar yaklaşık 40-45 dakika pişirin. Kendi sosuyla birlikte sıcak servis yapın."
     },
-    {
-        id: "15",
-        title: "Zeytinyağlı Enginar",
-        category: "Zeytinyağlılar",
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Zeytinya%C4%9Fl%C4%B1_enginar.jpg",
-        time: "40 dk",
-        servings: "4 Kişilik",
-        tags: ["Enginar", "Vegan", "Hafif"],
-        ingredients: [
-            { name: "Ayıklanmış Enginar Çanağı", measure: "4 adet" },
-            { name: "Garnitür", measure: "1 kase" },
-            { name: "Zeytinyağı", measure: "Yarım çay bardağı" },
-            { name: "Portakal Suyu", measure: "1 su bardağı" },
-            { name: "Limon", measure: "Yarım adet" },
-            { name: "Dereotu", measure: "Süslemek için" }
-        ],
-        instructions: "Kararmamaları için limonlu suda beklettiğiniz enginar çanaklarını geniş ve yayvan bir tencereye tek sıra halinde dizin.\nOrta kısımlarına havuç, patates ve bezelyeden oluşan garnitürü tepeleme doldurun.\nAyrı bir kasede zeytinyağı, taze sıkılmış portakal suyu, yarım limonun suyu, tuz ve 1 tatlı kaşığı toz şekeri karıştırarak sosunu hazırlayın.\nHazırladığınız bu özel sosu enginarların üzerine kaşıkla gezdirerek dökün.\nTencerenin tabanında kalan su yeterli gelmezse yarım çay bardağı kadar ılık su ilave edebilirsiniz.\nTencerenin kapağını kapatın ve kaynayana kadar orta ateşte, kaynadıktan sonra kısık ateşte enginarlar çatal batacak kıvama gelene kadar yaklaşık 25-30 dakika pişirin.\nPişen enginarları tenceresinde kapağı kapalı olarak soğumaya bırakın (Zeytinyağlılar kendi tenceresinde soğumalıdır). Servis yaparken üzerine bolca taze dereotu serpiştirin."
-    },
+    
     {
         id: "16",
         title: "Şifalı Tavuk Suyu Çorbası",
