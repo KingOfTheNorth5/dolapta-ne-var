@@ -278,6 +278,7 @@ function renderMealDetails(meal) {
             <div class="instructions-list">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h3 style="margin: 0;"><i class="fa-solid fa-fire-burner"></i> Yapılışı</h3>
+                    <button class="cooking-mode-btn" onclick="openCookingMode('${meal.id}')"><i class="fa-solid fa-play"></i> Pişirme Modu</button>
                 </div>
                 <p style="white-space: pre-line; line-height: 1.9; color: var(--text-secondary);">${meal.instructions}</p>
             </div>
@@ -361,4 +362,128 @@ function searchFridgeRecipes() {
     } else {
         renderMeals(matchedRecipes);
     }
+}
+
+// --- COOKING MODE LOGIC ---
+const cookingModeModal = document.getElementById('cookingModeModal');
+const closeCookingModeBtn = document.getElementById('closeCookingModeBtn');
+const prevStepBtn = document.getElementById('prevStepBtn');
+const nextStepBtn = document.getElementById('nextStepBtn');
+const timerContainer = document.getElementById('timerContainer');
+const timerDisplay = document.getElementById('timerDisplay');
+const startTimerBtn = document.getElementById('startTimerBtn');
+
+let currentSteps = [];
+let currentStepIndex = 0;
+let cookingTimerInterval = null;
+let cookingTimeLeft = 0;
+let foundTimeInMinutes = 0;
+
+if (closeCookingModeBtn) {
+    closeCookingModeBtn.addEventListener('click', closeCookingMode);
+    prevStepBtn.addEventListener('click', prevCookingStep);
+    nextStepBtn.addEventListener('click', nextCookingStep);
+    startTimerBtn.addEventListener('click', startCookingTimer);
+}
+
+window.openCookingMode = function(mealId) {
+    const meal = localRecipes.find(m => m.id === mealId);
+    if (!meal) return;
+    
+    // Split instructions by newlines
+    currentSteps = meal.instructions.split(/\n+/).filter(s => s.trim().length > 0);
+    if (currentSteps.length === 0) return;
+    
+    currentStepIndex = 0;
+    document.getElementById('cookingModeTitle').innerText = meal.title;
+    cookingModeModal.classList.remove('hidden');
+    renderCookingStep();
+}
+
+function renderCookingStep() {
+    clearInterval(cookingTimerInterval);
+    timerContainer.classList.add('hidden');
+    startTimerBtn.innerHTML = '<i class="fa-solid fa-play"></i> Başlat';
+    startTimerBtn.disabled = false;
+    timerDisplay.style.color = 'var(--accent-primary)';
+    
+    const stepText = currentSteps[currentStepIndex];
+    document.getElementById('stepNumber').innerText = `Adım ${currentStepIndex + 1} / ${currentSteps.length}`;
+    document.getElementById('stepText').innerText = stepText;
+    
+    const progressPercent = ((currentStepIndex + 1) / currentSteps.length) * 100;
+    document.getElementById('cookingProgressBar').style.width = `${progressPercent}%`;
+    
+    prevStepBtn.disabled = currentStepIndex === 0;
+    if (currentStepIndex === currentSteps.length - 1) {
+        nextStepBtn.innerHTML = '<i class="fa-solid fa-check"></i> Bitir';
+    } else {
+        nextStepBtn.innerHTML = 'Sonraki <i class="fa-solid fa-arrow-right"></i>';
+    }
+    
+    checkForTimer(stepText);
+}
+
+function checkForTimer(text) {
+    // Look for patterns like '15 dakika', '20-25 dakika'
+    const match = text.match(/(\d+)(?:\s*-\s*\d+)?\s*(?:dakika|dk)/i);
+    if (match) {
+        foundTimeInMinutes = parseInt(match[1]);
+        if (foundTimeInMinutes > 0) {
+            timerContainer.classList.remove('hidden');
+            updateTimerDisplay(foundTimeInMinutes * 60);
+        }
+    }
+}
+
+function updateTimerDisplay(totalSeconds) {
+    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+    const s = (totalSeconds % 60).toString().padStart(2, '0');
+    timerDisplay.innerText = `${m}:${s}`;
+}
+
+function startCookingTimer() {
+    if (startTimerBtn.innerText.includes('Başlat')) {
+        cookingTimeLeft = foundTimeInMinutes * 60;
+        startTimerBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Duraklat';
+        timerDisplay.style.color = 'var(--accent-primary)';
+        
+        cookingTimerInterval = setInterval(() => {
+            cookingTimeLeft--;
+            updateTimerDisplay(cookingTimeLeft);
+            
+            if (cookingTimeLeft <= 0) {
+                clearInterval(cookingTimerInterval);
+                timerDisplay.style.color = '#ef4444'; // red
+                startTimerBtn.innerHTML = '<i class="fa-solid fa-bell"></i> Süre Bitti';
+                startTimerBtn.disabled = true;
+            }
+        }, 1000);
+    } else {
+        // Pause
+        clearInterval(cookingTimerInterval);
+        startTimerBtn.innerHTML = '<i class="fa-solid fa-play"></i> Başlat';
+        foundTimeInMinutes = cookingTimeLeft / 60; // save current time
+    }
+}
+
+function prevCookingStep() {
+    if (currentStepIndex > 0) {
+        currentStepIndex--;
+        renderCookingStep();
+    }
+}
+
+function nextCookingStep() {
+    if (currentStepIndex < currentSteps.length - 1) {
+        currentStepIndex++;
+        renderCookingStep();
+    } else {
+        closeCookingMode();
+    }
+}
+
+function closeCookingMode() {
+    cookingModeModal.classList.add('hidden');
+    clearInterval(cookingTimerInterval);
 }
