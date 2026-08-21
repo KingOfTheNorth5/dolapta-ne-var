@@ -3,7 +3,7 @@ const localRecipes = [
         "id": "1",
         "title": "Karnıyarık",
         "category": "Ana Yemekler",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Karn%C4%B1yar%C4%B1k_-_Lunch_at_Yanyali_Fehmi_Lokantasi_%286421044715%29.jpg/960px-Karn%C4%B1yar%C4%B1k_-_Lunch_at_Yanyali_Fehmi_Lokantasi_%286421044715%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1544025162-8111142154ea?w=800&q=80",
         "time": "45 dk",
         "servings": "4 Kişilik",
         "tags": [
@@ -51,7 +51,7 @@ const localRecipes = [
         "id": "2",
         "title": "Kayseri Mantısı",
         "category": "Hamur İşleri",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg/960px-Kayseride_bir_restoranda_Kayseri_mant%C4%B1s%C4%B1_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1579697096985-41fe1430e58c?w=800&q=80",
         "time": "90 dk",
         "servings": "4 Kişilik",
         "tags": [
@@ -99,7 +99,7 @@ const localRecipes = [
         "id": "3",
         "title": "Ezogelin Çorbası",
         "category": "Çorbalar",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Ezogelin_soup%2C_bread%2C_and_water.jpg/960px-Ezogelin_soup%2C_bread%2C_and_water.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80",
         "time": "30 dk",
         "servings": "6 Kişilik",
         "tags": [
@@ -146,7 +146,7 @@ const localRecipes = [
         "id": "4",
         "title": "Ev Yapımı İskender Kebap",
         "category": "Ana Yemekler",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/%C4%B0skender_Kebap.jpg/960px-%C4%B0skender_Kebap.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80",
         "time": "60 dk",
         "servings": "2 Kişilik",
         "tags": [
@@ -194,7 +194,7 @@ const localRecipes = [
         "id": "5",
         "title": "Zeytinyağlı Yaprak Sarma",
         "category": "Zeytinyağlılar",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vi%C5%9Fneli_Yaprak_Sarma.jpg/960px-Vi%C5%9Fneli_Yaprak_Sarma.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
         "time": "120 dk",
         "servings": "6 Kişilik",
         "tags": [
@@ -242,7 +242,7 @@ const localRecipes = [
         "id": "6",
         "title": "Fırın Sütlaç",
         "category": "Tatlılar",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg/960px-S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&q=80",
         "time": "50 dk",
         "servings": "6 Kişilik",
         "tags": [
@@ -330,7 +330,7 @@ const localRecipes = [
         "id": "8",
         "title": "Orijinal Adana Kebap",
         "category": "Ana Yemekler",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Adana_Kebap.jpg/960px-Adana_Kebap.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=800&q=80",
         "time": "60 dk",
         "servings": "4 Kişilik",
         "tags": [
@@ -406,7 +406,7 @@ const localRecipes = [
         "id": "10",
         "title": "Bol Malzemeli Kumpir",
         "category": "Ana Yemekler",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Kumpir_-_Turkish_Cuisine.jpg/960px-Kumpir_-_Turkish_Cuisine.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "image": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=800&q=80",
         "time": "75 dk",
         "servings": "2 Kişilik",
         "tags": [
@@ -826,7 +826,7 @@ const localRecipes = [
         ],
         "instructions": "Etleri ve doğranmış sebzeleri baharatlarla harmanlayın.\nTestinin içine doldurun ve üzerine tereyağı parçaları koyun.\nTestinin ağzını hamurla kapatın ve ortasına küçük bir delik açın.\nOdun ateşinde veya 200 derece fırında 2 saat pişirin.\nServis sırasında testiyi kırarak yemeği sunun.",
         "id": "30",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/TestiKebabGoreme.jpg/960px-TestiKebabGoreme.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80"
     },
     {
         "title": "Beyti Sarma",
@@ -862,7 +862,7 @@ const localRecipes = [
         ],
         "instructions": "Kıymayı baharatlarla yoğurup şişlere dizin ve ızgarada veya fırında pişirin.\nPişen kebapları lavaşlara sarıp dilimleyin.\nDilimleri fırın tepsisine dizip üzerine eritilmiş tereyağı gezdirin ve 10 dakika fırınlayın.\nÜzerine domates sosu ve yanında süzme yoğurt ile servis yapın.",
         "id": "31",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Meninges-en.svg/960px-Meninges-en.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1544025162-8111142154ea?w=800&q=80"
     },
     {
         "title": "Kağıt Kebabı",
@@ -898,7 +898,7 @@ const localRecipes = [
         ],
         "instructions": "Kıymayı çok ince kıyılmış biber, maydanoz, sarımsak ve baharatlarla yoğurun.\nYağlı kağıt üzerine ince ve yuvarlak bir şekilde yayın.\nÜzerine domates ve biber dilimleri yerleştirin.\n200 derece fırında yaklaşık 25-30 dakika pişirin.",
         "id": "32",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Vankahvalti.jpg/960px-Vankahvalti.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?w=800&q=80"
     },
     {
         "title": "Ankara Tava",
@@ -934,7 +934,7 @@ const localRecipes = [
         ],
         "instructions": "Etleri tencerede mühürleyip suyunu çekene kadar kavurun.\nÜzerini geçecek kadar su ekleyip etler yumuşayana kadar haşlayın.\nAyrı bir tavada tereyağı ile arpa şehriyeleri kavurun.\nŞehriyeleri fırın tepsisine yayın, üzerine haşlanmış etleri dizin.\nEtin suyundan ekleyip 200 derece fırında şehriyeler suyunu çekene kadar pişirin.",
         "id": "33",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/TAV_Airports_logo.svg/960px-TAV_Airports_logo.svg.png?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80"
     },
     {
         "title": "Su Böreği",
@@ -970,7 +970,7 @@ const localRecipes = [
         ],
         "instructions": "Yumurta ve un ile sert bir hamur yoğurun ve bezelere ayırın.\nBezeleri incecik açıp kaynar tuzlu suda 1 dakika haşlayın, ardından soğuk suya alın.\nYufkaları tepsiye aralarına eritilmiş tereyağı sürerek dizin.\nOrtasına peynirli maydanozlu harcı yayın.\nÖnceden ısıtılmış 180 derece fırında altı ve üstü kızarana kadar pişirin.",
         "id": "34",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Su_B%C3%B6re%C4%9Fi.JPG/960px-Su_B%C3%B6re%C4%9Fi.JPG?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80"
     },
     {
         "title": "Çiğ Börek",
@@ -1038,7 +1038,7 @@ const localRecipes = [
         ],
         "instructions": "Un, su ve tuzu yoğurarak elastik bir hamur elde edin.\nHamuru sıvı yağ içinde 1 saat dinlendirin.\nDinlenen hamuru tezgahta elinizle çekerek zar gibi incecik açın.\nRulo şeklinde sarıp gül böreği gibi dolayın.\nFırın tepsisine dizip 200 derecede nar gibi kızarana kadar pişirin.",
         "id": "36",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Boyoz_g%C3%B6sterim.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+        "image": "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=800&q=80"
     },
     {
         "title": "Gözleme",
@@ -1066,7 +1066,7 @@ const localRecipes = [
         ],
         "instructions": "Yufkayı tezgaha serin ve ortasına rendelenmiş kaşar peynirini yayın.\nYufkanın kenarlarını zarf şeklinde katlayarak peynirin üzerini kapatın.\nIsıtılmış sacda veya geniş bir teflon tavada arkalı önlü pişirin.\nPişen gözlemelerin üzerine sıcakken tereyağı sürün ve sıcak servis yapın.",
         "id": "37",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Yufka-opening_the_dough.jpg/960px-Yufka-opening_the_dough.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80"
     },
     {
         "title": "Haşhaşlı Çörek",
@@ -1102,7 +1102,7 @@ const localRecipes = [
         ],
         "instructions": "Ilık süt, maya, şeker ve unu yoğurarak mayalı bir hamur hazırlayın ve mayalanmaya bırakın.\nHaşhaş ezmesini sıvı yağ ile inceltin.\nMayalanan hamuru açıp üzerine haşhaşlı karışımı sürün.\nRulo yapıp dilimleyin ve tepsiye dizin.\nÜzerine yumurta sarısı sürüp 180 derece fırında pişirin.",
         "id": "38",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Poppy_seed_%C3%A7%C3%B6rek_from_Turkey.jpg/960px-Poppy_seed_%C3%A7%C3%B6rek_from_Turkey.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=800&q=80"
     },
     {
         "title": "Kıymalı Pide",
@@ -1138,7 +1138,7 @@ const localRecipes = [
         ],
         "instructions": "Hamur malzemeleriyle yumuşak bir hamur yoğurun ve mayalandırın.\nKıymayı çok ince doğranmış sebzelerle çiğden karıştırın.\nMayalanan hamuru oval ve uzun şekilde açın.\nOrtasına kıymalı harcı yayıp kenarlarını içe doğru katlayın.\nÖnceden ısıtılmış 220 derece fırında kenarları kızarana kadar pişirin.",
         "id": "39",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/T%C3%BCrkisches_Pide_mit_Hackfleisch_%28hier_Sojahack_und_Paprika%29.jpg/960px-T%C3%BCrkisches_Pide_mit_Hackfleisch_%28hier_Sojahack_und_Paprika%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+        "image": "https://images.unsplash.com/photo-1604908177525-410a08e1a100?w=800&q=80"
     },
     {
         "title": "Katmer",
@@ -1174,7 +1174,7 @@ const localRecipes = [
         ],
         "instructions": "İncecik açılmış hamurun üzerine eritilmiş tereyağı sürün.\nOrtasına kaymak parçaları, bol antep fıstığı ve toz şeker serpin.\nZarf şeklinde katlayın.\nFırında veya geniş bir tavada tereyağı ile arkalı önlü kızartın.\nSıcakken üzerine fıstık serperek servis yapın.",
         "id": "40",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Simit_vendor_in_Istanbul.jpg/800px-Simit_vendor_in_Istanbul.jpg"
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&q=80"
     },
     {
         "title": "Tepsi Mantısı",
@@ -1210,7 +1210,7 @@ const localRecipes = [
         ],
         "instructions": "Mantı hamurunu hazırlayıp ince şekilde açın ve kare kare kesin.\nKıymalı iç harç ile mantıları kapatın ancak bu sefer fırın tepsisine dik bir şekilde sıkıca dizin.\nÖnceden ısıtılmış 200 derece fırında mantıların üzeri kızarana kadar fırınlayın.\nFırından çıkan sıcak mantının üzerine sıcak et suyunu gezdirip çekmesini bekleyin.\nSarımsaklı yoğurt ve salçalı sos ile servis yapın.",
         "id": "41",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Kayseri_mant%C4%B1s%C4%B1.jpg/800px-Kayseri_mant%C4%B1s%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1579697096985-41fe1430e58c?w=800&q=80"
     },
     {
         "title": "Gül Böreği",
@@ -1242,7 +1242,7 @@ const localRecipes = [
         ],
         "instructions": "Yufkaları dörde bölerek üçgen parçalar elde edin.\nSüt ve sıvı yağı karıştırarak sos hazırlayın, yufkaların üzerine sürün.\nGeniş kısma peynir koyup rulo yapın ve kendi etrafında dolayarak gül şekli verin.\nTepsiye dizip üzerine kalan sosu ve yumurta sarısı sürün.\n180 derece fırında kızarana kadar pişirin.",
         "id": "42",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Lahmacun_and_salad.jpg/800px-Lahmacun_and_salad.jpg"
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80"
     },
     {
         "title": "Beyran Çorbası",
@@ -1278,7 +1278,7 @@ const localRecipes = [
         ],
         "instructions": "Kuzu etini düdüklü tencerede iyice yumuşayana kadar haşlayın.\nHaşlanan etleri kemiklerinden ayırıp didikleyin.\nBakır bir sahana iç yağı, sarımsak ve pul biberi alıp kavurun.\nÜzerine haşlanmış pirinç ve didiklenmiş etleri ekleyin.\nSon olarak kaynar et suyunu döküp şiddetli ateşte bir taşım kaynatın ve sıcak servis yapın.",
         "id": "43",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Yayla_%C3%A7orbas%C4%B1.jpg/800px-Yayla_%C3%A7orbas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1548943487-a2e4b43b485d?w=800&q=80"
     },
     {
         "title": "Düğün Çorbası",
@@ -1314,7 +1314,7 @@ const localRecipes = [
         ],
         "instructions": "Gerdan etini iyice haşlayın ve didikleyin.\nEtin suyunu süzüp tencereye alın.\nBir kasede yoğurt, un ve yumurta sarısını çırparak terbiye hazırlayın.\nKaynayan et suyundan terbiyeye ekleyip ılıtın, ardından yavaşça tencereye ilave edin.\nDidiklenmiş etleri ekleyip kaynatın. Üzerine kırmızı biberli kızdırılmış tereyağı dökerek servis yapın.",
         "id": "44",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mercimek_%C3%A7orbas%C4%B1.jpg/800px-Mercimek_%C3%A7orbas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80"
     },
     {
         "title": "Arabaşı Çorbası",
@@ -1350,7 +1350,7 @@ const localRecipes = [
         ],
         "instructions": "Tavuğu haşlayıp ince ince didikleyin.\nTencerede tereyağı ve unu kavurun. Salçayı ekleyip kokusu çıkana kadar kavurmaya devam edin.\nSoğuk su ekleyerek unu açın, ardından sıcak tavuk suyunu ilave edin.\nDidiklenmiş tavukları ve baharatları ekleyip kıvam alana kadar kaynatın.\nYanında özel arabaşı hamuru ile yutularak servis yapılır.",
         "id": "45",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Ezogelin_soup%2C_bread%2C_and_water.jpg/800px-Ezogelin_soup%2C_bread%2C_and_water.jpg"
+        "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80"
     },
     {
         "title": "Yüksük Çorbası",
@@ -1386,7 +1386,7 @@ const localRecipes = [
         ],
         "instructions": "Tencereye et suyunu alıp kaynatın.\nKaynayan suya mantı ve haşlanmış nohutları ilave edin.\nAyrı bir tavada tereyağı, salça ve naneyi kavurup sos hazırlayın.\nMantılar pişince sosu çorbaya ilave edin.\nBir taşım daha kaynatıp sıcak servis yapın.",
         "id": "46",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mercimek_%C3%A7orbas%C4%B1.jpg/800px-Mercimek_%C3%A7orbas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1548943487-a2e4b43b485d?w=800&q=80"
     },
     {
         "title": "Kelle Paça",
@@ -1422,7 +1422,7 @@ const localRecipes = [
         ],
         "instructions": "Kelle ve paçaları iyice temizleyip düdüklü tencerede uzun süre haşlayın.\nHaşlanan etleri kemiklerinden ayırıp küçük küçük doğrayın ve süzülmüş et suyuna ekleyin.\nAyrı bir tavada tereyağı ve pul biberi kızdırıp çorbaya ekleyin.\nBol ezilmiş sarımsak ve sirke karışımını çorbanın yanında sunarak servis yapın.",
         "id": "47",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Mercimek_%C3%A7orbas%C4%B1.jpg/800px-Mercimek_%C3%A7orbas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&q=80"
     },
     {
         "title": "Zeytinyağlı Barbunya",
@@ -1458,7 +1458,7 @@ const localRecipes = [
         ],
         "instructions": "Barbunyaları hafifçe haşlayıp suyunu süzün.\nTencereye zeytinyağını alıp yemeklik doğranmış soğanı pembeleşene kadar kavurun.\nKüp doğranmış havuç ve patatesleri ekleyin.\nBarbunyaları, tuz, kesme şeker ve sıcak suyu ilave edip kısık ateşte pişirin.\nÜzerine maydanoz serperek soğuk servis yapın.",
         "id": "48",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Patl%C4%B1can_salatas%C4%B1.jpg/800px-Patl%C4%B1can_salatas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1490645935967-10de6ba8292f?w=800&q=80"
     },
     {
         "title": "İmam Bayıldı",
@@ -1494,7 +1494,7 @@ const localRecipes = [
         ],
         "instructions": "Patlıcanları alacalı soyup tuzlu suda bekletin, ardından hafifçe kızartın.\nSoğanları piyazlık doğrayıp bol zeytinyağında sarımsaklarla birlikte yumuşayana kadar kavurun.\nDoğranmış domatesleri ekleyip sos kıvamına getirin.\nPatlıcanların ortasını açıp harcı doldurun.\nTencereye dizip az su ile kısık ateşte pişirin. Soğuk servis yapın.",
         "id": "49",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vi%C5%9Fneli_Yaprak_Sarma.jpg/800px-Vi%C5%9Fneli_Yaprak_Sarma.jpg"
+        "image": "https://images.unsplash.com/photo-1524859330668-c357331384f5?w=800&q=80"
     },
     {
         "title": "Zeytinyağlı Taze Fasulye",
@@ -1530,7 +1530,7 @@ const localRecipes = [
         ],
         "instructions": "Fasulyeleri ayıklayıp ortadan ikiye bölün.\nTencereye sırasıyla doğranmış soğan, fasulye ve küp doğranmış domatesleri kat kat dizin.\nZeytinyağı, tuz ve şekeri ekleyin.\nHiç su eklemeden, kısık ateşte fasulyeler kendi suyunu salıp çekene kadar pişirin.\nSoğuk servis yapın.",
         "id": "50",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dolma_%281%29.jpg/800px-Dolma_%281%29.jpg"
+        "image": "https://images.unsplash.com/photo-1524859330668-c357331384f5?w=800&q=80"
     },
     {
         "title": "Zeytinyağlı Kereviz",
@@ -1566,7 +1566,7 @@ const localRecipes = [
         ],
         "instructions": "Kerevizleri soyup kararmaması için limonlu suda bekletin.\nTencereye zeytinyağı ve doğranmış soğanları alıp kavurun.\nHavuçları ve dilimlenmiş kerevizleri ekleyin.\nTaze sıkılmış portakal suyu, tuz ve şekeri ilave edip kısık ateşte pişirin.\nKendi tenceresinde soğumaya bırakın.",
         "id": "51",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Patl%C4%B1can_salatas%C4%B1.jpg/800px-Patl%C4%B1can_salatas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1524859330668-c357331384f5?w=800&q=80"
     },
     {
         "title": "Şakşuka",
@@ -1602,7 +1602,7 @@ const localRecipes = [
         ],
         "instructions": "Patlıcan ve biberleri küp küp doğrayıp zeytinyağında kızartın ve havlu kağıt üzerine alın.\nAyrı bir tavada zeytinyağı, ezilmiş sarımsak ve rendelenmiş domatesleri kaynatarak yoğun bir sos elde edin.\nKızarmış sebzeleri servis tabağına alın.\nÜzerine hazırladığınız domates sosunu dökerek servis yapın.",
         "id": "52",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Patl%C4%B1can_salatas%C4%B1.jpg/800px-Patl%C4%B1can_salatas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80"
     },
     {
         "title": "Fava",
@@ -1638,7 +1638,7 @@ const localRecipes = [
         ],
         "instructions": "Baklaları akşamdan ıslatın.\nTencerede iri doğranmış soğan, bakla ve suyu ekleyip baklalar tamamen ezilene kadar kaynatın.\nSuyunu çeken baklaları blenderdan geçirip püre haline getirin.\nİçine zeytinyağı, tuz, limon ve ince kıyılmış dereotunu ekleyip karıştırın.\nBir kaba döküp buzdolabında kalıp gibi donana kadar bekletin ve dilimleyerek servis yapın.",
         "id": "53",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Patl%C4%B1can_salatas%C4%B1.jpg/800px-Patl%C4%B1can_salatas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1524859330668-c357331384f5?w=800&q=80"
     },
     {
         "title": "Zeytinyağlı Pırasa",
@@ -1674,7 +1674,7 @@ const localRecipes = [
         ],
         "instructions": "Pırasaları verev şekilde, havuçları ise halka halka doğrayın.\nTencereye zeytinyağını alıp havuçları hafifçe soteleyin.\nPırasaları ekleyip birkaç dakika kavurun.\nYıkanmış pirinç, limon suyu, tuz, şeker ve sıcak suyu ekleyin.\nPirinçler yumuşayana kadar kısık ateşte pişirin.",
         "id": "54",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Patl%C4%B1can_salatas%C4%B1.jpg/800px-Patl%C4%B1can_salatas%C4%B1.jpg"
+        "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80"
     },
     {
         "title": "Zeytinyağlı Enginar",
@@ -1710,7 +1710,7 @@ const localRecipes = [
         ],
         "instructions": "Enginar çanaklarını tencereye dizin.\nOrtalarına hazır garnitürü tepeleme doldurun.\nAyrı bir kapta zeytinyağı, portakal suyu, limon suyu ve şekeri karıştırıp enginarların üzerine dökün.\nKapağı kapalı olarak enginarlar yumuşayana kadar pişirin.\nÜzerine taze dereotu serperek soğuk servis yapın.",
         "id": "55",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Dolma_%281%29.jpg/800px-Dolma_%281%29.jpg"
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80"
     },
     {
         "title": "Deniz Börülcesi",
@@ -1742,7 +1742,7 @@ const localRecipes = [
         ],
         "instructions": "Deniz börülcelerini bol suda yıkayıp kaynar suda 15 dakika haşlayın.\nHaşlanan börülceleri soğuk suya alıp şoklayın.\nKök kısımlarından tutup çekerek kılçıklarını sıyırın.\nZeytinyağı, dövülmüş sarımsak ve bol limon suyu ile sos hazırlayın.\nBörülceleri bu sosla harmanlayıp servis yapın.",
         "id": "56",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Vi%C5%9Fneli_Yaprak_Sarma.jpg/800px-Vi%C5%9Fneli_Yaprak_Sarma.jpg"
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80"
     },
     {
         "title": "Künefe",
@@ -1778,7 +1778,7 @@ const localRecipes = [
         ],
         "instructions": "Şeker ve suyu kaynatarak şerbeti hazırlayın ve soğumaya bırakın.\nKadayıfları incecik didikleyip eritilmiş tereyağı ile harmanlayın.\nKünefe tepsisinin tabanına kadayıfın yarısını iyice bastırarak döşeyin.\nÜzerine dilimlenmiş peynirleri yayın ve kalan kadayıfı ekleyip tekrar çok sıkı bastırın.\nOcak üzerinde tepsiyi çevire çevire her iki tarafını da kızartın ve ocaktan alır almaz soğuk şerbeti dökün.",
         "id": "57",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.jpg/800px-Baklava%281%29.jpg"
+        "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80"
     },
     {
         "title": "Şöbiyet",
@@ -1814,7 +1814,7 @@ const localRecipes = [
         ],
         "instructions": "Süt ve irmiği kaynatarak koyu bir kaymak (muhallebi) hazırlayın.\nYufkaları aralarına eritilmiş tereyağı sürerek üst üste dizin ve kareler halinde kesin.\nHer karenin ortasına bir kaşık irmik kaymağı ve bol fıstık koyup üçgen katlayın.\nTepsiye hafifçe üst üste binecek şekilde dizip kalan tereyağını gezdirin.\nKızarana kadar fırınlayın, fırından çıkınca soğuk şerbet dökün.",
         "id": "58",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/A%C5%9Fure_-_Noah%27s_Pudding.jpg/800px-A%C5%9Fure_-_Noah%27s_Pudding.jpg"
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80"
     },
     {
         "title": "Höşmerim",
@@ -1846,7 +1846,7 @@ const localRecipes = [
         ],
         "instructions": "Taze peyniri tencereye alıp kısık ateşte eritin.\nPeynir eriyince yumurta sarısını hızlıca ekleyip çırpın.\nİrmiği ilave edip peynirle birlikte irmikler şişene kadar kavurun.\nSon olarak şekeri ekleyin ve şeker eriyip tatlı sulanıp tekrar kıvam alana kadar pişirin.\nSıcak veya ılık olarak servis yapın.",
         "id": "59",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Tavukg%C3%B6%C4%9Fsu_-_Chicken_Breast_Pudding_from_Turkey.jpg/800px-Tavukg%C3%B6%C4%9Fsu_-_Chicken_Breast_Pudding_from_Turkey.jpg"
+        "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&q=80"
     },
     {
         "title": "Kazandibi",
@@ -1882,7 +1882,7 @@ const localRecipes = [
         ],
         "instructions": "Süt, şeker, pirinç unu ve nişastayı tencereye alıp koyulaşana kadar pişirerek muhallebi yapın.\nAlüminyum bir tepsinin tabanına bolca pudra şekeri serpin.\nÜzerine hazırladığınız muhallebiden ince bir tabaka yayın ve tepsiyi ocağa alıp şekerin karamelize olup yanmasını sağlayın.\nTaban yanıp kokusu çıkınca kalan muhallebiyi tepsiye dökün.\nBuzdolabında soğuttuktan sonra rulo yaparak servis yapın.",
         "id": "60",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Tavukg%C3%B6%C4%9Fsu_-_Chicken_Breast_Pudding_from_Turkey.jpg/800px-Tavukg%C3%B6%C4%9Fsu_-_Chicken_Breast_Pudding_from_Turkey.jpg"
+        "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80"
     },
     {
         "title": "Revani",
@@ -1918,7 +1918,7 @@ const localRecipes = [
         ],
         "instructions": "Şeker ve suyu kaynatarak şerbeti hazırlayıp soğumaya bırakın.\nYumurta ve şekeri köpürene kadar çırpın, ardından yoğurt ve sıvı yağı ekleyin.\nİrmik, un, kabartma tozu ve vanilyayı ilave edip karıştırın.\nYağlanmış borcama döküp 180 derece fırında üzeri kızarana kadar pişirin.\nFırından çıkan sıcak kekin üzerine soğuk şerbeti dökün.",
         "id": "61",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.jpg/800px-Baklava%281%29.jpg"
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80"
     },
     {
         "title": "Keşkül",
@@ -1954,7 +1954,7 @@ const localRecipes = [
         ],
         "instructions": "Süt, toz şeker, toz badem, nişasta ve pirinç ununu tencereye alın.\nÇırpıcıyla sürekli karıştırarak orta ateşte koyulaşıp kaynayana kadar pişirin.\nKaynayan keşkülü servis kaselerine paylaştırın.\nOda sıcaklığına geldikten sonra buzdolabında soğutun.\nÜzerine fıstık veya badem serperek servis yapın.",
         "id": "62",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/K%C3%BCnefe_1.jpg/800px-K%C3%BCnefe_1.jpg"
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80"
     },
     {
         "title": "Kemalpaşa Tatlısı",
@@ -1986,7 +1986,7 @@ const localRecipes = [
         ],
         "instructions": "Geniş bir tencereye su ve şekeri alıp kaynatın.\nKaynayan şerbete birkaç damla limon sıkın.\nKuru kemalpaşa tatlılarını şerbetin içine atın.\nTatlılar şerbeti çekip yumuşayana ve şişene kadar kısık ateşte pişirin.\nBuzdolabında soğuttuktan sonra kaymak veya tahin ile servis yapın.",
         "id": "63",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.jpg/800px-Baklava%281%29.jpg"
+        "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80"
     },
     {
         "title": "Kabak Tatlısı",
@@ -2018,7 +2018,7 @@ const localRecipes = [
         ],
         "instructions": "Kabakları dilimleyip temizleyin ve geniş bir tencereye dizin.\nÜzerine toz şekeri gezdirin ve kapağını kapatıp en az 3-4 saat (vaktiniz varsa 1 gece) kendi suyunu salması için bekletin.\nSuyunu salan kabakları hiç su eklemeden kısık ateşte yumuşayana kadar pişirin.\nŞerbetini çekip parlak bir görünüm alınca ocaktan alın.\nSoğuduktan sonra tahin ve ceviz dökerek servis yapın.",
         "id": "64",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/K%C3%BCnefe_1.jpg/800px-K%C3%BCnefe_1.jpg"
+        "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80"
     },
     {
         "title": "Trileçe",
@@ -2054,7 +2054,7 @@ const localRecipes = [
         ],
         "instructions": "Yumurta ve şekeri köpürene kadar çırpın, unu ekleyip pandispanya hazırlayın ve fırında pişirin.\nSüt, krema ve çok az şekeri karıştırarak sütlü şerbeti hazırlayın.\nPişen kekin üzerine delikler açıp soğuk sütlü şerbeti dökün.\nKek sütü tamamen çekince üzerine ince bir tabaka krem şanti sürün.\nEn üste hazırladığınız veya hazır aldığınız karamel sosunu gezdirip soğuk servis yapın.",
         "id": "65",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg/800px-S%C3%BCtla%C3%A7_%28Hamsik%C3%B6y%29.jpg"
+        "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&q=80"
     },
     {
         "title": "Haydari",
@@ -2094,7 +2094,7 @@ const localRecipes = [
         ],
         "instructions": "Tereyağında kuru naneyi kokusu çıkana kadar hafifçe yakın ve soğumaya bırakın.\nSüzme yoğurdun içine ezilmiş beyaz peynir ve dövülmüş sarımsakları ekleyin.\nİnce kıyılmış dereotunu ve soğumuş naneli tereyağını ilave edin.\nTüm malzemeleri iyice karıştırın ve servis tabağına alıp üzerini zeytinyağı ile süsleyin.",
         "id": "66",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Hummus_with_pine_nuts.jpg/800px-Hummus_with_pine_nuts.jpg"
+        "image": "https://images.unsplash.com/photo-1541529086526-db283c563270?w=800&q=80"
     },
     {
         "title": "Muhammara",
@@ -2134,7 +2134,7 @@ const localRecipes = [
         ],
         "instructions": "Cevizleri dişe gelecek şekilde dövün veya robottan geçirin.\nBir kasede salçaları, ezilmiş sarımsağı, zeytinyağını, galeta ununu ve cevizleri karıştırın.\nİçine kimyon, pul biber, az miktarda nar ekşisi ekleyip yoğurur gibi iyice harmanlayın.\nKıvamı çok koyu olursa biraz daha zeytinyağı ile açabilirsiniz.\nServis tabağına alıp üzerine ceviz koyarak servis yapın.",
         "id": "67",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%C3%87i%C4%9F_k%C3%B6fte.jpg/800px-%C3%87i%C4%9F_k%C3%B6fte.jpg"
+        "image": "https://images.unsplash.com/photo-1606850780554-b55ea44fceea?w=800&q=80"
     },
     {
         "title": "Babagannuş",
@@ -2174,7 +2174,7 @@ const localRecipes = [
         ],
         "instructions": "Patlıcan, biber ve domatesleri közleyip kabuklarını soyun.\nSebzeleri bıçakla ince ince kıyarak ezme haline getirin.\nİçine ezilmiş sarımsak, tuz, zeytinyağı ve nar ekşisini ekleyin.\nTüm malzemeleri güzelce harmanlayın.\nServis tabağına yayıp üzerine maydanoz serperek sunun.",
         "id": "68",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%C3%87i%C4%9F_k%C3%B6fte.jpg/800px-%C3%87i%C4%9F_k%C3%B6fte.jpg"
+        "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80"
     },
     {
         "title": "Atom",
@@ -2210,7 +2210,7 @@ const localRecipes = [
         ],
         "instructions": "Süzme yoğurdu ezilmiş sarımsak ve az tuz ile çırparak pürüzsüz hale getirin ve servis tabağına yayın.\nTavada tereyağı ve zeytinyağını ısıtın.\nİçine küçük doğranmış kurutulmuş Arnavut biberlerini (acı biberleri) atıp biberlerin rengi yağa çıkana kadar kavurun.\nBiberli sıcak yağı sarımsaklı yoğurdun üzerine gezdirin.\nKızarmış ekmekle birlikte servis yapın.",
         "id": "69",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cac%C4%B1k.jpg/800px-Cac%C4%B1k.jpg"
+        "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80"
     },
     {
         "title": "Gavurdağı Ezmesi",
@@ -2250,7 +2250,7 @@ const localRecipes = [
         ],
         "instructions": "Domatesleri, soğanları ve biberleri tıpkı ezme gibi çok ama çok ince, minik minik doğrayın (robottan çekmeyin, bıçakla kıyın).\nİnce kıyılmış maydanoz ve iri dövülmüş cevizi ekleyin.\nBolca nar ekşisi, sızma zeytinyağı, tuz ve sumak ilave edin.\nTüm malzemeyi ezmeden nazikçe karıştırın.\nServis tabağına alıp üzerine tekrar ceviz serpiştirerek sunun.",
         "id": "70",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/%C3%87i%C4%9F_k%C3%B6fte.jpg/800px-%C3%87i%C4%9F_k%C3%B6fte.jpg"
+        "image": "https://images.unsplash.com/photo-1541529086526-db283c563270?w=800&q=80"
     },
     {
         "title": "Tarator",
@@ -2286,7 +2286,7 @@ const localRecipes = [
         ],
         "instructions": "Bayat ekmek içlerini çok az suyla ıslatıp suyunu iyice sıkın.\nMutfak robotuna ekmek içlerini, cevizleri, ezilmiş sarımsakları ekleyin.\nZeytinyağı, limon suyu ve tuzu ilave edip robottan geçirerek pürüzsüz bir sos elde edin.\nKıvamı çok koyuysa çok az su veya zeytinyağı ile açabilirsiniz.\nÖzellikle kalamar, midye gibi deniz ürünlerinin yanında veya kızarmış ekmekle servis yapın.",
         "id": "71",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cac%C4%B1k.jpg/800px-Cac%C4%B1k.jpg"
+        "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=800&q=80"
     },
     {
         "id": "20",
@@ -2476,7 +2476,7 @@ const localRecipes = [
         "id": "24",
         "title": "Baklava (Cevizli)",
         "category": "Tatl�lar",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.jpg/960px-Baklava%281%29.jpg",
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80",
         "time": "90 dk",
         "servings": "10 Ki�ilik",
         "tags": [
@@ -2516,7 +2516,7 @@ const localRecipes = [
         "id": "25",
         "title": "�i� K�fte (Etsiz)",
         "category": "Ba�lang��lar",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/%C3%87i%C4%9F_k%C3%B6fte_2.jpg/960px-%C3%87i%C4%9F_k%C3%B6fte_2.jpg",
+        "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&q=80",
         "time": "40 dk",
         "servings": "6 Ki�ilik",
         "tags": [
