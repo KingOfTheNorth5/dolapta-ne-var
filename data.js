@@ -252,7 +252,7 @@ const localRecipes = [
         id: "14",
         title: "Kremalı Fırın Tavuk",
         category: "Ana Yemekler",
-        image: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Roast_chicken.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
         time: "50 dk",
         servings: "4 Kişilik",
         tags: ["Tavuk", "Fırın", "Pratik"],
