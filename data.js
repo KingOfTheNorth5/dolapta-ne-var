@@ -270,7 +270,7 @@ const localRecipes = [
         id: "15",
         title: "Zeytinyağlı Enginar",
         category: "Zeytinyağlılar",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Artichoke_J1.jpg/960px-Artichoke_J1.jpg?utm_source=tr.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Zeytinya%C4%9Fl%C4%B1_enginar.jpg/800px-Zeytinya%C4%9Fl%C4%B1_enginar.jpg",
         time: "40 dk",
         servings: "4 Kişilik",
         tags: ["Enginar", "Vegan", "Hafif"],
